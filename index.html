@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PGIMER Template Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css?v=9">
+<style>
+.slide { display: none; }
+.slide.active { display: flex; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div id="slides-container"></div>
+
+<div class="nav-bar">
+    <button class="nav-btn" id="prevBtn" onclick="nav(-1)">&larr; Previous</button>
+    <div style="text-align:center;">
+        <div class="nav-title" id="navTitle">Title</div>
+        <div class="nav-info"><span id="navNum">1</span> / <span id="navTotal">0</span></div>
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="nav(1)">Next &rarr;</button>
+</div>
+
+<script>
+let cur = 0;
+let total = 0;
+let titles = [];
+let slideIds = [];
+
+function renderHeader(header, isHero = false) {
+    if (!header) return '';
+    let html = '';
+    if (header.tag) {
+        if (isHero) {
+            html += `<span class="tag" style="background:rgba(255,255,255,0.1);color:var(--teal-l);">${header.tag}</span>`;
+        } else {
+            let tc = header.tagColor || 'default';
+            // map specific colors back if available via class mapping or explicit inline if needed
+            html += `<span class="tag tag-${tc}">${header.tag}</span>`;
+        }
+    }
+    if (header.title) {
+        html += `<h1 ${isHero ? 'style="font-size:38px;line-height:1.15;max-width:700px;"' : ''}>${header.title}</h1>`;
+    }
+    if (header.subtitle) {
+        html += `<p class="sub" ${isHero ? 'style="margin-top:16px;margin-bottom:24px;max-width:650px;"' : ''}>${header.subtitle}</p>`;
+    }
+    return html;
+}
+
+function renderHero(slide) {
+    let ht = `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;">`;
+    ht += renderHeader(slide.header, true);
+    ht += `<div style="width:60px;height:3px;background:var(--teal);margin-bottom:24px;"></div>`;
+    if (slide.content) {
+        ht += slide.content.map((p, i) => `<p style="font-size:13px;${i===0 ? 'color:rgba(255,255,255,0.4);': ''}">${p}</p>`).join('');
+    }
+    ht += `</div>`;
+    return ht;
+}
+
+function renderProcess(slide) {
+    let ht = `<div class="accent-bar"></div>`;
+    ht += renderHeader(slide.header);
+    if (slide.steps) {
+        slide.steps.forEach(s => {
+            let colorVar = s.color === 'red' ? 'var(--red)' : 'var(--gr)';
+            let bgClass = s.color === 'red' ? 'red' : '';
+            let bgStyle = bgClass ? '' : `background:${colorVar};`;
+            
+            ht += `<div class="step mt24" style="border-color:${colorVar};">`;
+            ht += `<div class="step-n ${bgClass}" style="${bgStyle}">${s.number}</div>`;
+            ht += `<div>`;
+            if (s.heading) ht += `<h4>${s.heading}</h4>`;
+            if (s.text) ht += s.text.map(t => `<p>${t}</p>`).join('');
+            
+            if (s.details && s.details.length > 0) {
+                ht += `<div class="step-detail mt16">`;
+                s.details.forEach((d, idx) => {
+                    // alternate mock colors based on index for variety
+                    const colors = ['var(--teal-p)', 'var(--gl)', 'var(--bl)', 'var(--al)'];
+                    const txtColors = ['var(--teal)', 'var(--grn)', 'var(--blu)', 'var(--amb)'];
+                    ht += `<div class="step-col">`;
+                    if (d.title) ht += `<h5>${d.title}</h5>`;
+                    if (d.tags) d.tags.forEach((tg, ti) => {
+                        let bk = colors[ti % colors.length];
+                        let tk = txtColors[ti % txtColors.length];
+                        if(d.title.includes("Channels")) {
+                            ht += `<span class="ch-tag" style="background:${bk};color:${tk};">${tg}</span>`;
+                        } else {
+                            ht += `<p style="margin-bottom:4px">${tg}</p>`; // Fallback for simple p elements that were incorrectly parsed as ch-tags
+                        }
+                    }); 
+                    if (d.text) ht += `<p>${d.text}</p>`;
+                    ht += `</div>`;
+                });
+                ht += `</div>`;
+            }
+            ht += `</div></div>`;
+        });
+    }
+    return ht;
+}
+
+function renderGridCards(slide) {
+    let ht = slide.theme !== 'dark' && slide.theme !== 'medium' ? `<div class="accent-bar"></div>` : '';
+    ht += renderHeader(slide.header);
+    if (slide.grids) {
+        slide.grids.forEach(g => {
+            ht += `<div class="${g.type} mt16">`;
+            g.cards.forEach(c => {
+                let cardCls = c.theme === 'dark' ? 'card-dark' : 'card';
+                // optional colored border top based on randomness for demo if missing
+                let topColors = ['var(--teal)', 'var(--amb)', 'var(--pur)', 'var(--red)'];
+                let tC = topColors[Math.floor(Math.random()*topColors.length)];
+                
+                ht += `<div class="${cardCls}" style="border-top: 4px solid ${tC}">`;
+                if (c.heading) ht += `<h4>${c.heading}</h4>`;
+                if (c.text) ht += c.text.map(t => `<p class="mt16">${t}</p>`).join('');
+                ht += `</div>`;
+            });
+            ht += `</div>`;
+        });
+    }
+    return ht;
+}
+
+function renderBeforeAfter(slide) {
+    let ht = `<div class="accent-bar"></div>`;
+    ht += renderHeader(slide.header);
+    if (slide.comparisons) {
+        slide.comparisons.forEach(c => {
+            ht += `<div class="ba mt24 mb16">`;
+            ht += `<div class="ba-before"><h5>${c.before.heading}</h5><p>${c.before.text}</p></div>`;
+            ht += `<div class="ba-after"><h5>${c.after.heading}</h5><p>${c.after.text}</p></div>`;
+            ht += `</div>`;
+        });
+    }
+    return ht;
+}
+
+function renderTimeline(slide) {
+    let ht = `<div class="accent-bar"></div>`;
+    ht += renderHeader(slide.header);
+    if (slide.timeline) {
+        ht += `<div class="tl mt16">`;
+        slide.timeline.forEach(t => {
+            ht += `<div class="tl-item">`;
+            ht += `<h4>${t.heading}</h4><div class="dur">${t.duration}</div><p>${t.text}</p>`;
+            ht += `</div>`;
+        });
+        ht += `</div>`;
+    }
+    return ht;
+}
+
+function renderTableLayout(slide) {
+    let ht = `<div class="accent-bar"></div>`;
+    ht += renderHeader(slide.header);
+    if (slide.table && slide.table.headers) {
+        ht += `<div style="overflow-x:auto;margin-top:16px;">`;
+        ht += `<table class="cost-tbl mt24" style="min-width:900px;"><thead><tr>`;
+        slide.table.headers.forEach(th => ht += `<th>${th}</th>`);
+        ht += `</tr></thead><tbody>`;
+        slide.table.rows.forEach(r => {
+            ht += `<tr>`;
+            r.forEach(td => ht += `<td>${td}</td>`);
+            ht += `</tr>`;
+        });
+        ht += `</tbody></table></div>`;
+    }
+    if (slide.grid) {
+        ht += `<div class="grid3 mt32">`;
+        slide.grid.forEach(c => {
+            ht += `<div class="card" style="text-align:center;border-color:var(--teal);">`;
+            c.forEach((p,i) => {
+                if (i===0) ht += `<p style="font-family:'DM Serif Display';font-size:28px;color:var(--teal);">${p}</p>`;
+                else ht += `<p style="font-size:12px;color:var(--gr);">${p}</p>`;
+            });
+            ht += `</div>`;
+        });
+        ht += `</div>`;
+    }
+    return ht;
+}
+
+function renderCustomHTML(slide) {
+    let ht = slide.theme !== 'dark' && slide.theme !== 'medium' ? `<div class="accent-bar"></div>` : '';
+    ht += renderHeader(slide.header);
+    if (slide.html) {
+        ht += `<div class="mt24 custom-html-container">\n${slide.html}\n</div>`;
+    }
+    return ht;
+}
+
+function buildTemplateEngine() {
+    return {
+        Hero: renderHero,
+        Process: renderProcess,
+        GridCards: renderGridCards,
+        BeforeAfter: renderBeforeAfter,
+        Timeline: renderTimeline,
+        TableLayout: renderTableLayout,
+        CustomHTML: renderCustomHTML,
+        Unknown: slide => {
+            return renderHeader(slide.header) + `<p style="color:red">Unknown template or generic slide.</p>`;
+        }
+    };
+}
+
+const templates = buildTemplateEngine();
+
+async function init() {
+    try {
+        const res = await fetch('template_deck.json');
+        const data = await res.json();
+        const slides = data.slides || data;
+        total = slides.length;
+        document.getElementById('navTotal').textContent = total;
+        
+        const container = document.getElementById('slides-container');
+        
+        slides.forEach((slide) => {
+            slideIds.push(slide.id);
+            titles.push(slide.header?.title || `Slide ${slide.id}`);
+            const div = document.createElement('div');
+            
+            let cls = 'slide';
+            if (slide.theme === 'dark') cls += ' slide-dark';
+            else if (slide.theme === 'medium') cls += ' slide-medium';
+            else cls += ' slide-light';
+            
+            div.className = cls;
+            div.id = slide.id;
+            
+            const renderer = templates[slide.template] || templates.Unknown;
+            div.innerHTML = renderer(slide);
+            container.appendChild(div);
+        });
+        
+        nav(0);
+    } catch(err) {
+        console.error("Failed to load template data:", err);
+        document.getElementById('slides-container').innerHTML = "<p style='color:red;padding:20px'>Error loading slides. Check console.</p>";
+    }
+}
+
+function nav(d) {
+  let next = cur + d;
+  if(d === 0) next = 0;
+  if (next < 0 || next >= total) return;
+  
+  const currentId = slideIds[cur];
+  if (document.getElementById(currentId)) {
+      document.getElementById(currentId).classList.remove('active');
+  }
+  
+  cur = next;
+  const nextId = slideIds[cur];
+  
+  const slideEl = document.getElementById(nextId);
+  if (slideEl) {
+      slideEl.classList.add('active');
+  }
+  
+  document.getElementById('navNum').textContent = cur + 1;
+  document.getElementById('navTitle').textContent = titles[cur] || '';
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === total - 1;
+  document.getElementById('progress').style.width = ((cur+1)/total*100)+'%';
+  window.scrollTo(0, 0);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nav(1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); nav(-1); }
+});
+
+init();
+</script>
+</body>
+</html>
