@@ -198,7 +198,7 @@ function renderHubSpoke(slide) {
     
     const cx = 450;
     const cy = 280;
-    const radius = 200; 
+    const radius = 280; 
     
     // Dynamic Theme Color Engine
     const isLight = slide.theme === 'light';
@@ -219,11 +219,11 @@ function renderHubSpoke(slide) {
     
     ht += `
     <style>
-    .hub-svg-wrap { position: relative; max-width: 900px; margin: 40px auto 0; display: block; }
+    .hub-svg-wrap { position: relative; max-width: 1050px; width: 100%; margin: 30px auto 0; display: block; }
     .hub-svg-wrap svg { width: 100%; height: auto; display: block; overflow: visible; }
     .hub-svg-wrap g { transform-origin: center; } 
     </style>
-    <div class="hub-svg-wrap tl-item">
+    <div class="hub-svg-wrap custom-html-container">
       <svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <filter id="hubGlow">
