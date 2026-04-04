@@ -44,17 +44,112 @@
       "template": "Hero",
       "theme": "dark",
       "header": {
-        "tag": "The Problem",
+        "tag": "From a painful necessity to delightful experience",
         "tagColor": "default",
-        "title": "HERO: The System Is Operationally Functional, But Experientially Invisible."
+        "title": "Medcare AI OS:Redefining Hospital Experience"
       },
       "content": [
-        "We mapped three complete patient journeys at PGIMER \u2014 a new patient, an existing offline patient, and an online pre-registered patient. The findings are consistent across all three: the system tracks cards and CR numbers, but it does not track patients. The moment the card leaves the patient's hand, they become invisible.",
-        "Based on ground research at PGIMER Cardiology OPD, March 2026"
+        "Using modern technologies and customer first product thinking to make hospital visits a pleasurable experience",
+        "Improved efficiencies further lead to both higher revenues and lower costs"
       ]
     },
     {
       "id": "slide2",
+      "template": "HubSpoke",
+      "theme": "light",
+      "header": {
+        "tag": "dramatic transformations  across the board",
+        "tagColor": "pur",
+        "title": "Imagine A World...",
+        "subtitle": "Where technology steps in and automates all possible processes to make the experience better for patients, doctors and hospital staff."
+      },
+      "hub": {
+        "title": "KPIs",
+        "subtitle": "Transformed"
+      },
+      "nodes": [
+        {
+          "tag": "Wait Times",
+          "label": "90%",
+          "sublabel": "Lower"
+        },
+        {
+          "tag": "NPS",
+          "label": "30%",
+          "sublabel": "Higher"
+        },
+        {
+          "tag": "Digitization",
+          "label": "100%",
+          "sublabel": "Native"
+        },
+        {
+          "tag": "Pharmacy",
+          "label": "40%",
+          "sublabel": "Less Leakage"
+        },
+        {
+          "tag": "Diagnostics",
+          "label": "-50%",
+          "sublabel": "Error Rate"
+        },
+        {
+          "tag": "Consultation",
+          "label": "100%",
+          "sublabel": "Auto 2nd Opinion"
+        },
+        {
+          "tag": "Support Staff",
+          "label": "25%",
+          "sublabel": "Lower"
+        }
+      ]
+    },
+    {
+      "id": "slide_wait_times",
+      "template": "BeforeAfter",
+      "theme": "light",
+      "header": {
+        "tag": "Patient Flow Reality → AI Redesign",
+        "tagColor": "red",
+        "title": "From Blind Waiting → Predictable Flow",
+        "subtitle": "Fixing the single biggest experience failure in hospitals"
+      },
+      "comparisons": [
+        {
+          "before": {
+            "heading": "The Blind Spot (Today)",
+            "text": "Once the card leaves the patient’s hand, they become invisible. No queue visibility, no time estimate, no updates. Patients crowd outside doctor rooms, repeatedly checking and asking staff, creating anxiety and chaos."
+          },
+          "after": {
+            "heading": "AI-Driven Visibility",
+            "text": "Every patient sees their real-time position, wait time, and next step across app, WhatsApp, SMS, screens, and AI calls. The system tracks patients—not just cards—eliminating uncertainty."
+          }
+        },
+        {
+          "before": {
+            "heading": "Multiple Queues, No Logic",
+            "text": "Token queue → registration queue → waiting queue. Even online patients still queue. Test return patients re-enter with no structure, leading to negotiation and unfair access."
+          },
+          "after": {
+            "heading": "Unified Intelligent Queue",
+            "text": "One digital queue across the entire journey. AI prioritizes new, follow-up, and test-return patients automatically. No duplication, no confusion, no informal overrides."
+          }
+        },
+        {
+          "before": {
+            "heading": "Emotional Experience",
+            "text": "Anxiety, fear of missing turn, frustration, and fatigue before consultation. Patients arrive mentally drained, impacting doctor interaction quality."
+          },
+          "after": {
+            "heading": "Calm, Predictable Experience",
+            "text": "Patients can sit, step out, or wait remotely with confidence. Notifications at '3 away' remove anxiety. Waiting becomes informed, controlled, and humane."
+          }
+        }
+      ]
+    },
+    {
+      "id": "slide13",
       "template": "Process",
       "theme": "light",
       "header": {
@@ -146,7 +241,7 @@
       ]
     },
     {
-      "id": "slide3",
+      "id": "slide14",
       "template": "BeforeAfter",
       "theme": "light",
       "header": {
@@ -189,7 +284,7 @@
       ]
     },
     {
-      "id": "slide4",
+      "id": "slide24",
       "template": "GridCards",
       "theme": "medium",
       "header": {
@@ -270,7 +365,7 @@
       ]
     },
     {
-      "id": "slide5",
+      "id": "slide25",
       "template": "Timeline",
       "theme": "light",
       "header": {
@@ -308,7 +403,7 @@
       ]
     },
     {
-      "id": "slide6",
+      "id": "slide26",
       "template": "TableLayout",
       "theme": "light",
       "header": {
@@ -384,7 +479,7 @@
       ]
     },
     {
-      "id": "slide7",
+      "id": "slide27",
       "template": "CustomHTML",
       "theme": "dark",
       "header": {
