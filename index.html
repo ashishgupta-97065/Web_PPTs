@@ -216,9 +216,21 @@ const templates = buildTemplateEngine();
 
 async function init() {
     try {
-        const res = await fetch('template_deck.json');
+        const urlParams = new URLSearchParams(window.location.search);
+        const deckName = urlParams.get('deck');
+        
+        if (!deckName) {
+            document.getElementById('slides-container').innerHTML = "<div class='slide active slide-dark' style='justify-content:center;align-items:center;opacity:1;visibility:visible;'><h2 style='opacity:0.3'>No presentation specified.</h2></div>";
+            return;
+        }
+
+        const res = await fetch(`deck_jsons/${deckName}.json`);
+        if (!res.ok) throw new Error("Presentation not found.");
+        
         const data = await res.json();
         const slides = data.slides || data;
+        
+        document.title = deckName.charAt(0).toUpperCase() + deckName.slice(1).replace(/_/g, ' ') + " | Presentation";
         total = slides.length;
         document.getElementById('navTotal').textContent = total;
         
