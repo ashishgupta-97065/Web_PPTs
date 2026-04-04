@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PGIMER Template Presentation</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="deck.css?v=11">
+<link rel="stylesheet" href="deck.css?v=12">
 <style>
 .slide { display: none; }
 .slide.active { display: flex; }
@@ -53,7 +53,7 @@ function renderHeader(header, isHero = false) {
 }
 
 function renderHero(slide) {
-    let ht = `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;">`;
+    let ht = `<div class="hero-wrapper" style="flex:1;display:flex;flex-direction:column;justify-content:center;">`;
     ht += renderHeader(slide.header, true);
     ht += `<div style="width:60px;height:3px;background:var(--teal);margin-bottom:24px;"></div>`;
     if (slide.content) {
