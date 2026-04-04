@@ -68,12 +68,12 @@ function renderProcess(slide) {
     ht += renderHeader(slide.header);
     if (slide.steps) {
         slide.steps.forEach(s => {
-            let colorVar = s.color === 'red' ? 'var(--red)' : 'var(--gr)';
-            let bgClass = s.color === 'red' ? 'red' : '';
-            let bgStyle = bgClass ? '' : `background:${colorVar};`;
+            let clsColor = s.color || 'medium';
+            if(clsColor === 'default') clsColor = 'medium';
+            let colorVar = `var(--${clsColor})`;
             
             ht += `<div class="step mt24" style="border-color:${colorVar};">`;
-            ht += `<div class="step-n ${bgClass}" style="${bgStyle}">${s.number}</div>`;
+            ht += `<div class="step-n" style="background:${colorVar};">${s.number}</div>`;
             ht += `<div>`;
             if (s.heading) ht += `<h4>${s.heading}</h4>`;
             if (s.text) ht += s.text.map(t => `<p>${t}</p>`).join('');
@@ -116,7 +116,7 @@ function renderGridCards(slide) {
                 let cardCls = c.theme === 'dark' ? 'card-dark' : 'card';
                 // optional colored border top based on randomness for demo if missing
                 let topColors = ['var(--teal)', 'var(--amb)', 'var(--pur)', 'var(--red)'];
-                let tC = topColors[Math.floor(Math.random()*topColors.length)];
+                let tC = c.topColor ? (c.topColor === 'none' ? 'transparent' : 'var(--' + c.topColor + ')') : topColors[Math.floor(Math.random()*topColors.length)];
                 
                 ht += `<div class="${cardCls}" style="border-top: 4px solid ${tC}">`;
                 if (c.heading) ht += `<h4>${c.heading}</h4>`;
@@ -198,7 +198,7 @@ function renderHubSpoke(slide) {
     
     const cx = 450;
     const cy = 280;
-    const radius = 275; 
+    const radius = 300; 
     
     // Dynamic Theme Color Engine
     const isLight = slide.theme === 'light';
@@ -223,12 +223,13 @@ function renderHubSpoke(slide) {
     
     ht += `
     <style>
-    .hub-svg-wrap { position: relative; max-width: 900px; width: 100%; margin: 24px auto 0; display: block; }
-    .hub-svg-wrap svg { width: 100%; height: auto; max-height: 60vh; display: block; overflow: visible; }
+    #${slide.id} .sub { margin-bottom: 4px !important; }
+    .hub-svg-wrap { position: relative; max-width: 950px; width: 100%; margin: 8px auto 16px; display: block; }
+    .hub-svg-wrap svg { width: 100%; height: auto; max-height: 64vh; display: block; overflow: visible; }
     .hub-svg-wrap g { transform-origin: center; } 
     </style>
     <div class="hub-svg-wrap custom-html-container">
-      <svg viewBox="70 -100 760 820" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="20 -150 860 860" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <filter id="hubGlow">
             <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -263,7 +264,7 @@ function renderHubSpoke(slide) {
         
         nodesHtml += `
         <g class="node-group" style="animation: fadeScaleIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards ${delay}s; transform-origin: ${nx}px ${ny}px;">
-            <circle cx="${nx}" cy="${ny}" r="94" fill="${nodeBg}" stroke="${nodeStroke}" stroke-width="2">
+            <circle cx="${nx}" cy="${ny}" r="115" fill="${nodeBg}" stroke="${nodeStroke}" stroke-width="2">
                 <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite" begin="${i * 0.4}s"/>
             </circle>
             <text x="${nx}" y="${ny - 18}" text-anchor="middle" font-family="'DM Mono', monospace" font-size="21" fill="${fillTag}" letter-spacing="1">${node.tag || ('T'+(i+1))}</text>
@@ -277,12 +278,12 @@ function renderHubSpoke(slide) {
     
     // Center Hub Rings
     ht += `
-        <circle cx="${cx}" cy="${cy}" r="128" fill="none" stroke="${ringStroke1}" stroke-width="1.5">
-            <animate attributeName="r" values="128;148;128" dur="3s" repeatCount="indefinite"/>
+        <circle cx="${cx}" cy="${cy}" r="155" fill="none" stroke="${ringStroke1}" stroke-width="1.5">
+            <animate attributeName="r" values="155;175;155" dur="3s" repeatCount="indefinite"/>
             <animate attributeName="stroke-opacity" values="0.2;0.05;0.2" dur="3s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="${cx}" cy="${cy}" r="110" fill="none" stroke="${ringStroke2}" stroke-width="1.5"/>
-        <circle cx="${cx}" cy="${cy}" r="94" fill="${centerBg}" stroke="${centerStroke}" stroke-width="2" filter="url(#hubGlow)">
+        <circle cx="${cx}" cy="${cy}" r="135" fill="none" stroke="${ringStroke2}" stroke-width="1.5"/>
+        <circle cx="${cx}" cy="${cy}" r="115" fill="${centerBg}" stroke="${centerStroke}" stroke-width="2" filter="url(#hubGlow)">
              <animate attributeName="stroke-opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
         </circle>
         

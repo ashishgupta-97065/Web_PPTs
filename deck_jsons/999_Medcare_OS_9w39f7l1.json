@@ -106,192 +106,14 @@
       ]
     },
     {
-      "id": "slide_wait_times",
-      "template": "BeforeAfter",
-      "theme": "light",
-      "header": {
-        "tag": "Patient Flow Reality → AI Redesign",
-        "tagColor": "red",
-        "title": "From Blind Waiting → Predictable Flow",
-        "subtitle": "Fixing the single biggest experience failure in hospitals"
-      },
-      "comparisons": [
-        {
-          "before": {
-            "heading": "The Blind Spot (Today)",
-            "text": "Once the card leaves the patient’s hand, they become invisible. No queue visibility, no time estimate, no updates. Patients crowd outside doctor rooms, repeatedly checking and asking staff, creating anxiety and chaos."
-          },
-          "after": {
-            "heading": "AI-Driven Visibility",
-            "text": "Every patient sees their real-time position, wait time, and next step across app, WhatsApp, SMS, screens, and AI calls. The system tracks patients—not just cards—eliminating uncertainty."
-          }
-        },
-        {
-          "before": {
-            "heading": "Multiple Queues, No Logic",
-            "text": "Token queue → registration queue → waiting queue. Even online patients still queue. Test return patients re-enter with no structure, leading to negotiation and unfair access."
-          },
-          "after": {
-            "heading": "Unified Intelligent Queue",
-            "text": "One digital queue across the entire journey. AI prioritizes new, follow-up, and test-return patients automatically. No duplication, no confusion, no informal overrides."
-          }
-        },
-        {
-          "before": {
-            "heading": "Emotional Experience",
-            "text": "Anxiety, fear of missing turn, frustration, and fatigue before consultation. Patients arrive mentally drained, impacting doctor interaction quality."
-          },
-          "after": {
-            "heading": "Calm, Predictable Experience",
-            "text": "Patients can sit, step out, or wait remotely with confidence. Notifications at '3 away' remove anxiety. Waiting becomes informed, controlled, and humane."
-          }
-        }
-      ]
-    },
-    {
-      "id": "slide13",
-      "template": "Process",
-      "theme": "light",
-      "header": {
-        "tag": "Phase 1 \u00b7 Pre-Visit & Arrival",
-        "tagColor": "medium",
-        "title": "PROCESS: Steps 1\u20133: Before the Patient Sits Down"
-      },
-      "steps": [
-        {
-          "number": "1",
-          "color": "default",
-          "heading": "Register & Choose Slot",
-          "text": [
-            "Via app, WhatsApp bot, PGIMER portal, or IVR helpline (for non-smartphone users). Patient selects department + preferred date/time window. System auto-stamps OPD card digitally. Confirmation + QR code sent via all active channels."
-          ],
-          "details": [
-            {
-              "title": "Channels",
-              "tags": [
-                "\ud83d\udcf1 App",
-                "\ud83d\udcac WhatsApp",
-                "\ud83c\udf10 Portal",
-                "\ud83d\udcde IVR"
-              ]
-            },
-            {
-              "title": "Backend",
-              "text": "Queue engine assigns position. OPD card auto-generated. QR code created. Slot confirmed."
-            },
-            {
-              "title": "Cost Components",
-              "text": "WhatsApp Business API: \u20b9xxx/msg. SMS Gateway: \u20b9xxx/msg. IVR: \u20b9xxx/call. Portal dev: one-time."
-            }
-          ]
-        },
-        {
-          "number": "2",
-          "color": "default",
-          "heading": "Pre-Visit Reminder (24hrs Before)",
-          "text": [
-            "Automated reminder: date, time slot, department, floor/room, documents to carry. Includes map link for first-timers. For non-smartphone: AI voice call in Hindi/Punjabi. Retry 12hrs before if missed."
-          ],
-          "details": [
-            {
-              "title": "Channels",
-              "tags": [
-                "\ud83d\udcac WhatsApp",
-                "\u2709\ufe0f SMS",
-                "\ud83e\udd16 AI Call",
-                "\ud83d\udcf1 Push"
-              ]
-            },
-            {
-              "title": "Backend",
-              "text": "Auto-triggered 24hrs before slot. AI call system (Hindi, Punjabi, English). Retry logic on failure."
-            },
-            {
-              "title": "Impact",
-              "text": "Reduces no-shows by 30-40% (evidence-based). Prepares patient mentally. Reduces Day-0 confusion."
-            }
-          ]
-        },
-        {
-          "number": "3",
-          "color": "default",
-          "heading": "Frictionless Check-In at Hospital",
-          "text": [
-            "Online patients: Scan QR at department kiosk or tap \"I've arrived\" in app. Zero queues. Walk-in patients: Self-service kiosk at entry \u2192 Enter Aadhaar/phone \u2192 System creates record \u2192 Prints token + QR \u2192 Added to queue instantly. Assisted counter: For elderly/non-digital patients \u2014 volunteer registers them, explains process, prints token."
-          ],
-          "details": [
-            {
-              "title": "Channels",
-              "tags": [
-                "\ud83d\udda5\ufe0f Kiosk",
-                "\ud83d\udcf1 App",
-                "\ud83d\udc64 Staff"
-              ]
-            },
-            {
-              "title": "Backend",
-              "text": "Real-time queue position assigned. Department dashboard updated. Wait time calculated from avg consult duration."
-            },
-            {
-              "title": "Cost Components",
-              "text": "Kiosk hardware: \u20b9xxx each. 10 kiosks for Phase 1 departments. Token printer: \u20b9xxx each."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "slide14",
-      "template": "BeforeAfter",
-      "theme": "light",
-      "header": {
-        "tag": "Stakeholder Impact",
-        "tagColor": "grn",
-        "title": "BEFOREAFTER: How This Changes Life for Doctors & Support Staff",
-        "subtitle": "A system that only serves patients but burdens staff will not be adopted. This reduces friction for everyone."
-      },
-      "comparisons": [
-        {
-          "before": {
-            "heading": "Doctor \u2014 Today",
-            "text": "Constant door interruptions. Patients asking \"When is my turn?\" every 2 minutes. No patient context before walk-in. Paper files missing. Mental overhead of managing anxious crowd outside. Stress from confrontation."
-          },
-          "after": {
-            "heading": "Doctor \u2014 With System",
-            "text": "Zero door interruptions. One-click \"Next Patient\" button. Patient summary pre-loaded (Phase 2). No crowd management. Doctor focuses entirely on the patient in front of them. Reduced confrontation = reduced burnout."
-          }
-        },
-        {
-          "before": {
-            "heading": "Support Staff \u2014 Today",
-            "text": "Manually managing queues. Answering \"When is my turn?\" hundreds of times daily. Handling frustration and occasional aggression. Manual card stamping with breakable terminals. No fallback when hardware fails."
-          },
-          "after": {
-            "heading": "Support Staff \u2014 With System",
-            "text": "Queue is self-managed. Screen and notifications answer the #1 question automatically. Reduced confrontations. Digital stamping eliminates terminal dependency. Staff focuses on patients who genuinely need help."
-          }
-        },
-        {
-          "before": {
-            "heading": "Administration \u2014 Today",
-            "text": "No real-time visibility into patient load. No data on wait times. No feedback mechanism. No bottleneck identification. Infrastructure failures discovered when queues explode."
-          },
-          "after": {
-            "heading": "Administration \u2014 With System",
-            "text": "Live dashboard: patient flow across departments. Historical analytics for planning. Patient feedback scores. Proactive infrastructure alerts. Evidence for budget requests and accreditation."
-          }
-        }
-      ]
-    },
-    {
-      "id": "slide24",
+      "id": "slide3",
       "template": "GridCards",
       "theme": "medium",
       "header": {
-        "tag": "Phase 2",
-        "tagColor": "default",
-        "title": "GRIDCARDS: Digital Patient Platform & App",
-        "subtitle": "Once Phase 1 is stable and proven, layer on a comprehensive patient app \u2014 a digital companion for every visit and between visits. This is the long-term relationship with the patient."
+        "tag": "The AI Opportunity Landscape",
+        "tagColor": "pur",
+        "title": "AI Is Transforming Every Step of the Hospital Journey",
+        "subtitle": "From diagnostics to billing to patient engagement — proven AI systems are already augmenting each layer of care and operations. The change has to happen NOW!"
       },
       "grids": [
         {
@@ -299,65 +121,83 @@
           "cards": [
             {
               "theme": "light",
-              "heading": "\ud83d\udccb Visit History",
+              "topColor": "blu",
+              "heading": "🧠 Clinical Decision Support",
               "text": [
-                "Complete timeline of every PGI visit \u2014 date, department, doctor, diagnosis, prescriptions. Replaces the fat paper file."
+                "AI assists doctors with documentation, coding, and treatment suggestions.",
+                "Tools: Nuance DAX, Suki AI"
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83d\udd2c Test Results",
+              "topColor": "blu",
+              "heading": "🩻 Radiology AI",
               "text": [
-                "Auto-uploaded from PGI labs. Photo upload for outside lab results. All linked to visit timeline."
+                "Automated scan interpretation and prioritization of critical findings.",
+                "Tools: Qure.ai, Aidoc"
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83d\udc68\u200d\u2695\ufe0f Doctor's Notes",
+              "topColor": "grn",
+              "heading": "🧪 Pathology AI",
               "text": [
-                "Key points from each consultation in simple language. Diagnosis, observations, recommendations. Patient can revisit anytime."
+                "Digital pathology with AI-assisted diagnosis and grading support.",
+                "Tools: PathAI, Aira Matrix"
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83d\udc8a Medication Tracker",
+              "topColor": "amb",
+              "heading": "🛏️ Patient Flow & Scheduling",
               "text": [
-                "Current prescriptions, dosage, timing. Reminders. Refill alerts. Drug interaction warnings."
+                "Real-time bed tracking, discharge prediction, and flow optimization.",
+                "Tools: LeanTaaS, TeleTracking"
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83e\udd16 AI Health Assistant",
+              "topColor": "red",
+              "heading": "🏥 Operating Room Optimization",
               "text": [
-                "Ask questions in Hindi/English between visits. \"When should I take this?\" \"What does this report mean?\" Bridge between consultations."
+                "AI-driven scheduling and utilization improvement for surgical workflows.",
+                "Tools: LeanTaaS iQueue"
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83d\udc6a Family Access",
+              "topColor": "grn",
+              "heading": "💰 Revenue Cycle AI",
               "text": [
-                "Add family members as caregivers. Son in Gurugram tracks father's appointments, reports, medications remotely. Shared health dashboard."
+                "Automated coding, claim validation, and denial reduction.",
+                "Tools: Waystar, nThrive"
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83d\udcca Health Trends",
+              "topColor": "amb",
+              "heading": "💊 Pharmacy & Supply Chain",
               "text": [
-                "Visualise BP, sugar, cholesterol over time. Simple graphs. Visible to patient and doctor both."
+                "Demand forecasting, inventory optimization, and safe dispensing.",
+                "Tools: Blue Yonder, Omnicell"
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83d\udcc5 Appointments",
+              "topColor": "blu",
+              "heading": "💬 Patient Engagement",
               "text": [
-                "Book, reschedule, cancel. View slots by department/doctor. Auto-reminders at 48hrs, 24hrs, 2hrs."
+                "Chatbots, follow-ups, adherence tracking, and remote care.",
+                "Tools: Innovaccer, Huma"
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83c\udfe5 PGI Navigator",
+              "topColor": "amb",
+              "heading": "🤖 Generative AI Layer",
               "text": [
-                "Indoor wayfinding. \"How to get to Cardiology from main gate?\" Step-by-step with landmarks. Critical for first-timers and elderly."
+                "AI scribes, discharge summaries, and conversational assistants.",
+                "Tools: Nuance DAX, GPT / Claude-class models"
               ]
             }
           ]
@@ -365,130 +205,265 @@
       ]
     },
     {
-      "id": "slide25",
-      "template": "Timeline",
+      "id": "slide4",
+      "template": "HubSpoke",
       "theme": "light",
       "header": {
-        "tag": "Execution Plan",
-        "tagColor": "medium",
-        "title": "TIMELINE: Implementation Roadmap",
-        "subtitle": "Phased rollout \u2014 prove it in one department, then scale. Each phase has clear deliverables, costs, and success metrics."
+        "tag": "building an ai first future proof architecture",
+        "tagColor": "pur",
+        "title": "AI Across the Hospital Journey",
+        "subtitle": "A unified operating system orchestrating patient access, clinical intelligence, and hospital operations end-to-end"
       },
-      "timeline": [
+      "hub": {
+        "title": "MedCore OS",
+        "subtitle": "The AI Spine"
+      },
+      "nodes": [
         {
-          "heading": "Phase 1A: Pilot in Cardiology OPD",
-          "duration": "Months 1\u20133 \u00b7 Est. \u20b9xxx",
-          "text": "Build: Queue management engine. WhatsApp/SMS notification system. 3 department display screens. 2 self-service kiosks. AI calling integration. Assisted registration desk setup. Deliver: Live queue for Cardiology OPD. All 5 notification channels active. Test loop priority re-entry system. Post-visit feedback mechanism. Measure: Patient satisfaction score. Average perceived wait time. Door-crowding reduction. Staff feedback."
+          "tag": "PATIENT FLOW",
+          "label": "Flow Engine",
+          "sublabel": "Unified queues & routing"
         },
         {
-          "heading": "Phase 1B: Expand to 4 More Departments",
-          "duration": "Months 4\u20136 \u00b7 Est. \u20b9xxx",
-          "text": "Build: Scale queue system to Neurology, Gastroenterology, Orthopaedics, Ophthalmology. 8 additional screens. 4 additional kiosks. Staff training across departments. Deliver: 5 departments fully live. Cross-department dashboard for admin. Feedback data loop operational. Measure: Satisfaction trend across departments. No-show rate change. Queue depth patterns."
+          "tag": "CONSULTATION",
+          "label": "AI Scribe",
+          "sublabel": "Real-time transcription"
         },
         {
-          "heading": "Phase 1C: Full OPD Coverage",
-          "duration": "Months 7\u20139 \u00b7 Est. \u20b9xxx",
-          "text": "Build: All remaining OPD departments. Pharmacy queue integration. Lab queue integration. Audio announcement system. Full kiosk network. Deliver: Every OPD department has live queue, screens, and notifications. End-to-end patient journey tracked. Measure: Institution-wide satisfaction. Average wait reduction. Staff time reclaimed."
+          "tag": "DIAGNOSTICS",
+          "label": "Imaging AI",
+          "sublabel": "Faster reads, fewer misses"
         },
         {
-          "heading": "Phase 2: Digital Patient Platform & App",
-          "duration": "Months 10\u201315 \u00b7 Est. \u20b9xxx",
-          "text": "Build: PGIMER patient app (iOS + Android). Visit history + doctor notes. Test result upload/integration. Medication tracker. AI health assistant. Family access dashboard. Health trends. Indoor wayfinding. Deliver: Full patient companion app. Digital health records for every registered patient. AI assistant in Hindi + English. Measure: App adoption rate. Medication adherence improvement. Follow-up compliance. Patient NPS."
+          "tag": "OPERATIONS",
+          "label": "Orchestration AI",
+          "sublabel": "Automated workflows"
         },
         {
-          "heading": "Phase 3: Intelligence & Scale",
-          "duration": "Months 16\u201318 \u00b7 Est. \u20b9xxx",
-          "text": "Build: AI-powered wait time predictions. Research data pipeline. No-show prediction model. Cross-department referral system. Model documentation for PGI Satellite Sangrur. Deliver: Predictive operations dashboard. Research-grade anonymised datasets. Replicable model for other centres. Measure: Prediction accuracy. Research papers enabled. Scalability validation."
+          "tag": "BILLING & RCM",
+          "label": "Coding AI",
+          "sublabel": "Accurate billing, low denial"
+        },
+        {
+          "tag": "POST CARE",
+          "label": "Engagement AI",
+          "sublabel": "Regular follow-up"
         }
       ]
     },
     {
-      "id": "slide26",
-      "template": "TableLayout",
+      "id": "slide5",
+      "template": "GridCards",
       "theme": "light",
       "header": {
-        "tag": "Investment",
-        "tagColor": "amb",
-        "title": "TABLELAYOUT: Execution Cost Summary",
-        "subtitle": "Estimated costs for each phase. All figures are indicative and will be refined in the detailed technical proposal post-meeting."
+        "tag": "Hospitals Deliver Care. But The Experience Fails.",
+        "tagColor": "red",
+        "title": "Example Problem: Patient Journey",
+        "subtitle": "The issue isn’t capability — it’s the absence of visibility, flow, and patient-centric design."
       },
-      "table": {
-        "headers": [
-          "Phase",
-          "Timeline",
-          "Scope",
-          "Estimated Cost",
-          "Key Deliverables"
-        ],
-        "rows": [
-          [
-            "1A",
-            "Months 1\u20133",
-            "Cardiology OPD Pilot",
-            "\u20b9xxx",
-            "Queue engine, 5-channel notifications, 3 screens, 2 kiosks, test loop fix, feedback"
-          ],
-          [
-            "1B",
-            "Months 4\u20136",
-            "4 More Departments",
-            "\u20b9xxx",
-            "Scale to 5 total departments, 8 screens, 4 kiosks, admin dashboard"
-          ],
-          [
-            "1C",
-            "Months 7\u20139",
-            "Full OPD",
-            "\u20b9xxx",
-            "All OPD departments, pharmacy + lab integration, audio system, full kiosk network"
-          ],
-          [
-            "2",
-            "Months 10\u201315",
-            "Patient App & Platform",
-            "\u20b9xxx",
-            "iOS + Android app, health records, AI assistant, medication tracker, family access"
-          ],
-          [
-            "3",
-            "Months 16\u201318",
-            "Intelligence & Scale",
-            "\u20b9xxx",
-            "AI predictions, research data, cross-department referrals, Sangrur replication model"
-          ],
-          [
-            "Total Estimated Investment",
-            "\u20b9xxx",
-            "Over 18 months. Phase 1A can demonstrate impact within 90 days."
+      "grids": [
+        {
+          "type": "grid3",
+          "cards": [
+            {
+              "theme": "light",
+              "topColor": "gr",
+              "heading": "👁️ Patients Become Invisible",
+              "text": [
+                "Systems track files, IDs, and records — not patients.",
+                "Once the process starts, patients lose visibility into what’s happening."
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "amb",
+              "heading": "⏳ Waiting Is Undefined",
+              "text": [
+                "No queue position, no ETA, no updates.",
+                "Waiting becomes the dominant experience — and it is unmanaged."
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "pur",
+              "heading": "🔁 Fragmented Journeys",
+              "text": [
+                "Multiple queues for a single outcome.",
+                "No unified flow across registration, consultation, and follow-ups."
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "red",
+              "heading": "😰 Stress-Driven Behavior",
+              "text": [
+                "Crowding, repeated checking, and informal negotiation.",
+                "These behaviors are created by system gaps — not people."
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "blu",
+              "heading": "📱 Digital ≠ Better Experience",
+              "text": [
+                "Online booking exists, but uncertainty remains.",
+                "Digitization is layered — not integrated into the journey."
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "red",
+              "heading": "🔄 Broken Return Loops",
+              "text": [
+                "Test results and follow-ups lack structured re-entry.",
+                "Patients restart the journey, leading to chaos and delays."
+              ]
+            }
           ]
-        ]
-      },
-      "grid": [
-        [
-          "90 Days",
-          "To first live deployment in Cardiology OPD"
-        ],
-        [
-          "\u20b9xxx",
-          "Phase 1A cost \u2014 prove the concept with one department"
-        ],
-        [
-          "86%\u2192",
-          "\"Excellent\" satisfaction with queue system (clinical evidence)"
-        ]
+        }
       ]
     },
     {
-      "id": "slide27",
-      "template": "CustomHTML",
+      "id": "slide6",
+      "template": "Process",
+      "theme": "light",
+      "header": {
+        "tag": "The AI-Native Model",
+        "tagColor": "grn",
+        "title": "Solution: From Blind Journeys to Intelligent Patient Flow",
+        "subtitle": "A unified, AI-driven system where every patient is continuously informed, guided, and seamlessly managed."
+      },
+      "steps": [
+        {
+          "number": "1",
+          "color": "blu",
+          "heading": "Unified Entry Layer",
+          "text": [
+            "A single digital token is created via app, WhatsApp, kiosk, or assisted desk.",
+            "Works seamlessly for both smartphone and non-smartphone users."
+          ]
+        },
+        {
+          "number": "2",
+          "color": "pur",
+          "heading": "Real-Time Visibility",
+          "text": [
+            "Patients always know their queue position, estimated wait time, and next step.",
+            "Eliminates uncertainty and removes the need for physical queue monitoring."
+          ]
+        },
+        {
+          "number": "3",
+          "color": "amb",
+          "heading": "Multi-Channel AI Assistant",
+          "text": [
+            "A multilingual assistant across app, WhatsApp, SMS, and AI voice provides continuous updates and guidance.",
+            "Ensures every patient — regardless of digital access — remains informed at all times."
+          ]
+        },
+        {
+          "number": "4",
+          "color": "medium",
+          "heading": "Intelligent Flow Orchestration",
+          "text": [
+            "AI dynamically manages queues, prioritizes cases, and handles test-return logic automatically.",
+            "Optimizes patient flow across departments in real time."
+          ]
+        },
+        {
+          "number": "5",
+          "color": "grn",
+          "heading": "Seamless End-to-End Journey",
+          "text": [
+            "Consultation, diagnostics, pharmacy, and follow-ups operate within one continuous system.",
+            "No re-entry, no duplication, no fragmentation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slide7",
+      "template": "Process",
+      "theme": "light",
+      "header": {
+        "tag": "Better Experience for customer · Less work for Doctors & staff · Higher Revenue for hospital",
+        "tagColor": "grn",
+        "title": "A Hospital That Just Works: Example of an OPD Journey",
+        "subtitle": "An end-to-end, AI-orchestrated journey where patients, doctors, and systems move in perfect sync"
+      },
+      "steps": [
+        {
+          "number": "1",
+          "color": "default",
+          "heading": "🌐 Digital Entry",
+          "text": [
+            "Patient books online and receives a unified digital token with time and doctor allocation."
+          ]
+        },
+        {
+          "number": "2",
+          "color": "amb",
+          "heading": "🧭 Guided Arrival",
+          "text": [
+            "Smart navigation guides the patient directly to the right location — no counters, no confusion."
+          ]
+        },
+        {
+          "number": "3",
+          "color": "grn",
+          "heading": "⏱️ Visible Waiting",
+          "text": [
+            "Real-time queue position and ETA eliminate crowding and uncertainty."
+          ]
+        },
+        {
+          "number": "4",
+          "color": "blu",
+          "heading": "🎤 Augmented Consult",
+          "text": [
+            "An AI scribe captures notes in real time and generates structured prescriptions for one-click doctor approval."
+          ]
+        },
+        {
+          "number": "5",
+          "color": "amb",
+          "heading": "⚙️ Auto Coordination",
+          "text": [
+            "Pharmacy workflows are triggered instantly after patient confirmation — no manual handoffs."
+          ]
+        },
+        {
+          "number": "6",
+          "color": "default",
+          "heading": "📦 Ready Pickup",
+          "text": [
+            "Medicines are prepared before the patient reaches the pharmacy for instant pickup."
+          ]
+        },
+        {
+          "number": "7",
+          "color": "grn",
+          "heading": "📲 Continuous Care",
+          "text": [
+            "AI-driven follow-ups, reminders, and remote monitoring ensure adherence and next consult bookings."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slide8",
+      "template": "Hero",
       "theme": "dark",
       "header": {
-        "tag": "Live Demo",
-        "tagColor": "medium",
-        "title": "NETLIFY IMPORT: MedCore Architecture",
-        "subtitle": "This section was automatically sourced directly from the requested URL (div[2]) and injected inline."
+        "tag": "OPD was just one simple example",
+        "tagColor": "pur",
+        "title": "Imagine All Hospital Processes Redefined With AI",
+        "subtitle": "AI transforms not only individual steps but also helps connect different steps into a seamless journey"
       },
-      "html": "\n<style>\n.diagram-section {\n  background: var(--teal-900, #042d2d);\n  padding: 64px 72px 72px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 12px;\n  margin-top: 16px;\n  border: 1px solid rgba(45,189,189,0.3);\n}\n.diagram-section::before {\n  content: '';\n  position: absolute; inset: 0;\n  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(18,160,160,0.06) 0%, transparent 70%);\n}\n.diagram-title {\n  text-align: center;\n  font-family: 'DM Mono', monospace;\n  font-size: 10px;\n  letter-spacing: 0.25em;\n  text-transform: uppercase;\n  color: var(--teal-400, #2dbdbd);\n  margin-bottom: 48px;\n  position: relative;\n}\n.hub-container {\n  position: relative;\n  max-width: 900px;\n  margin: 0 auto;\n}\n#hub-svg {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n</style>\n\n<div class=\"diagram-section\">\n  <div class=\"diagram-title\">System Architecture \u2014 Hub &amp; Spoke Model</div>\n  <div class=\"hub-container\">\n    <svg id=\"hub-svg\" viewBox=\"0 0 900 560\" xmlns=\"http://www.w3.org/2000/svg\">\n      <defs>\n        <radialGradient id=\"hubGrad\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n          <stop offset=\"0%\" stop-color=\"#12a0a0\" stop-opacity=\"0.25\"/>\n          <stop offset=\"100%\" stop-color=\"#042d2d\" stop-opacity=\"0\"/>\n        </radialGradient>\n        <marker id=\"arrow\" markerWidth=\"6\" markerHeight=\"6\" refX=\"5\" refY=\"3\" orient=\"auto\">\n          <path d=\"M0,0 L0,6 L6,3 z\" fill=\"rgba(45,189,189,0.5)\"/>\n        </marker>\n        <filter id=\"glow\">\n          <feGaussianBlur stdDeviation=\"3\" result=\"blur\"/>\n          <feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge>\n        </filter>\n      </defs>\n\n      <!-- Background radial -->\n      <ellipse cx=\"450\" cy=\"280\" rx=\"340\" ry=\"220\" fill=\"url(#hubGrad)\"/>\n\n      <!-- Spoke lines -->\n      <!-- P1: 11 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"345\" y2=\"98\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <!-- P2: 1 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"555\" y2=\"98\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <!-- P3: 3 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"660\" y2=\"280\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <!-- P4: 5 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"555\" y2=\"462\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <!-- P5: 7 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"345\" y2=\"462\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <!-- P6: 9 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"240\" y2=\"280\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n\n      <!-- Pulsing ring -->\n      <circle cx=\"450\" cy=\"280\" r=\"78\" fill=\"none\" stroke=\"rgba(45,189,189,0.12)\" stroke-width=\"1\">\n        <animate attributeName=\"r\" values=\"78;92;78\" dur=\"3s\" repeatCount=\"indefinite\"/>\n        <animate attributeName=\"stroke-opacity\" values=\"0.12;0.04;0.12\" dur=\"3s\" repeatCount=\"indefinite\"/>\n      </circle>\n      <circle cx=\"450\" cy=\"280\" r=\"65\" fill=\"none\" stroke=\"rgba(45,189,189,0.2)\" stroke-width=\"1\"/>\n\n      <!-- Centre hub -->\n      <circle cx=\"450\" cy=\"280\" r=\"60\" fill=\"#0a4a4a\" stroke=\"rgba(45,189,189,0.6)\" stroke-width=\"1.5\" filter=\"url(#glow)\"/>\n      <text x=\"450\" y=\"272\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17\" font-weight=\"400\" fill=\"rgba(255,255,255,0.9)\" letter-spacing=\"0.5\">MedCore</text>\n      <text x=\"450\" y=\"292\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17\" font-style=\"italic\" fill=\"#2dbdbd\" letter-spacing=\"0.5\">AI OS</text>\n\n      <!-- \u2500\u2500 PILLAR NODES \u2500\u2500 -->\n      <!-- P1: 11 o'clock \u2014 Patient Ingestion -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-1')\" style=\"cursor:pointer\">\n        <circle cx=\"345\" cy=\"98\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"0s\"/>\n        </circle>\n        <text x=\"345\" y=\"84\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">01</text>\n        <text x=\"345\" y=\"100\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Patient</text>\n        <text x=\"345\" y=\"116\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Ingestion</text>\n        <circle cx=\"345\" cy=\"98\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- P2: 1 o'clock \u2014 Ambient Clinical -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-2')\" style=\"cursor:pointer\">\n        <circle cx=\"555\" cy=\"98\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"0.6s\"/>\n        </circle>\n        <text x=\"555\" y=\"84\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">02</text>\n        <text x=\"555\" y=\"100\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Ambient</text>\n        <text x=\"555\" y=\"116\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Clinical AI</text>\n        <circle cx=\"555\" cy=\"98\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- P3: 3 o'clock \u2014 Diagnostic -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-3')\" style=\"cursor:pointer\">\n        <circle cx=\"660\" cy=\"280\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"1.2s\"/>\n        </circle>\n        <text x=\"660\" y=\"266\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">03</text>\n        <text x=\"660\" y=\"282\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Diagnostic</text>\n        <text x=\"660\" y=\"298\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Intelligence</text>\n        <circle cx=\"660\" cy=\"280\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- P4: 5 o'clock \u2014 Agentic Ops -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-4')\" style=\"cursor:pointer\">\n        <circle cx=\"555\" cy=\"462\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"1.8s\"/>\n        </circle>\n        <text x=\"555\" y=\"448\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">04</text>\n        <text x=\"555\" y=\"464\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Agentic</text>\n        <text x=\"555\" y=\"480\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Operations</text>\n        <circle cx=\"555\" cy=\"462\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- P5: 7 o'clock \u2014 Revenue -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-5')\" style=\"cursor:pointer\">\n        <circle cx=\"345\" cy=\"462\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"2.4s\"/>\n        </circle>\n        <text x=\"345\" y=\"448\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">05</text>\n        <text x=\"345\" y=\"464\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Revenue</text>\n        <text x=\"345\" y=\"480\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Cycle</text>\n        <circle cx=\"345\" cy=\"462\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- P6: 9 o'clock \u2014 Remote Care -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-6')\" style=\"cursor:pointer\">\n        <circle cx=\"240\" cy=\"280\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"3s\"/>\n        </circle>\n        <text x=\"240\" y=\"266\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">06</text>\n        <text x=\"240\" y=\"282\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Remote</text>\n        <text x=\"240\" y=\"298\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Care</text>\n        <circle cx=\"240\" cy=\"280\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- Hover hint -->\n      <text x=\"450\" y=\"545\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"11\" fill=\"rgba(255,255,255,0.2)\" letter-spacing=\"1.5\">CLICK ANY NODE TO JUMP TO DETAIL</text>\n    </svg>\n  </div>\n</div>"
+      "content": [
+        "Patients experience care without friction reducing the hesitation to visit hospitals",
+        "Hospital makes more revenue while also keeping their medical and support staff much happier"
+      ]
     }
   ]
 }
