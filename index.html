@@ -204,22 +204,22 @@ function renderHubSpoke(slide) {
     const isLight = slide.theme === 'light';
     const isMed = slide.theme === 'medium';
     
-    // Dark lines for connections & rings in light mode
+    // Dark lines overlay cleanly on white canvas
     const lineCol = isLight ? 'rgba(17,24,39,0.3)' : (isMed ? 'rgba(255,255,255,0.2)' : 'rgba(139,92,246,0.25)');
     const ringStroke1 = isLight ? 'rgba(17,24,39,0.1)' : (isMed ? 'rgba(255,255,255,0.15)' : 'rgba(139,92,246,0.2)');
     const ringStroke2 = isLight ? 'rgba(17,24,39,0.2)' : (isMed ? 'rgba(255,255,255,0.25)' : 'rgba(139,92,246,0.4)');
     
-    // Dark nodes universally to lock high-contrast white text legibility 
-    const nodeBg = isLight ? '#111827' : (isMed ? 'rgba(0,0,0,0.15)' : '#2a1b54');
-    const centerBg = isLight ? '#111827' : (isMed ? 'rgba(0,0,0,0.3)' : '#1e143f');
+    // Purple nodes in Light Themes for vibrant brand contrast 
+    const nodeBg = isLight ? '#8b5cf6' : (isMed ? 'rgba(0,0,0,0.15)' : '#2a1b54');
+    const centerBg = isLight ? '#8b5cf6' : (isMed ? 'rgba(0,0,0,0.3)' : '#1e143f');
     
-    // Deep purple strokes for that crisp AI aesthetic glow against the dark nodes
-    const nodeStroke = isLight ? 'rgba(139,92,246,0.9)' : (isMed ? 'rgba(255,255,255,0.3)' : 'rgba(139,92,246,0.6)');
-    const centerStroke = isLight ? '#8b5cf6' : (isMed ? 'rgba(255,255,255,0.4)' : 'rgba(139,92,246,0.7)');
+    // Sharp bright strokes to edge out the purple nodes in Light Mode
+    const nodeStroke = isLight ? 'rgba(255,255,255,0.6)' : (isMed ? 'rgba(255,255,255,0.3)' : 'rgba(139,92,246,0.6)');
+    const centerStroke = isLight ? 'rgba(255,255,255,0.6)' : (isMed ? 'rgba(255,255,255,0.4)' : 'rgba(139,92,246,0.7)');
     
-    const fillLabel = '#ffffff'; // White text universally because all nodes are now drawn dark
-    const fillSub = isLight ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.5)';
-    const fillTag = isMed ? '#c4b5fd' : '#8b5cf6'; // Keep bright purple tags
+    const fillLabel = '#ffffff'; 
+    const fillSub = isLight ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.5)';
+    const fillTag = (isLight || isMed) ? '#c4b5fd' : '#8b5cf6'; // Keep light violet tags so they don't vanish into pure purple nodes
     
     ht += `
     <style>
@@ -263,7 +263,7 @@ function renderHubSpoke(slide) {
         
         nodesHtml += `
         <g class="node-group" style="animation: fadeScaleIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards ${delay}s; transform-origin: ${nx}px ${ny}px;">
-            <circle cx="${nx}" cy="${ny}" r="66" fill="${nodeBg}" stroke="${nodeStroke}" stroke-width="1.5">
+            <circle cx="${nx}" cy="${ny}" r="75" fill="${nodeBg}" stroke="${nodeStroke}" stroke-width="1.5">
                 <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite" begin="${i * 0.4}s"/>
             </circle>
             <text x="${nx}" y="${ny - 14}" text-anchor="middle" font-family="'DM Mono', monospace" font-size="17" fill="${fillTag}" letter-spacing="1">${node.tag || ('T'+(i+1))}</text>
@@ -277,12 +277,12 @@ function renderHubSpoke(slide) {
     
     // Center Hub Rings
     ht += `
-        <circle cx="${cx}" cy="${cy}" r="90" fill="none" stroke="${ringStroke1}" stroke-width="1">
-            <animate attributeName="r" values="90;105;90" dur="3s" repeatCount="indefinite"/>
+        <circle cx="${cx}" cy="${cy}" r="102" fill="none" stroke="${ringStroke1}" stroke-width="1">
+            <animate attributeName="r" values="102;118;102" dur="3s" repeatCount="indefinite"/>
             <animate attributeName="stroke-opacity" values="0.2;0.05;0.2" dur="3s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="${cx}" cy="${cy}" r="78" fill="none" stroke="${ringStroke2}" stroke-width="1"/>
-        <circle cx="${cx}" cy="${cy}" r="66" fill="${centerBg}" stroke="${centerStroke}" stroke-width="1.5" filter="url(#hubGlow)">
+        <circle cx="${cx}" cy="${cy}" r="88" fill="none" stroke="${ringStroke2}" stroke-width="1"/>
+        <circle cx="${cx}" cy="${cy}" r="75" fill="${centerBg}" stroke="${centerStroke}" stroke-width="1.5" filter="url(#hubGlow)">
              <animate attributeName="stroke-opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
         </circle>
         
