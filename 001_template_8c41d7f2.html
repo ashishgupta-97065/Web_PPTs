@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HERO: The High-Impact Opening Slide</title>
+<meta property="og:title" content="HERO: The High-Impact Opening Slide">
+<meta property="og:description" content="View this interactive presentation">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css?v=15">
+<style>
+.slide { display: none; }
+.slide.active { display: flex; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div id="slides-container"></div>
+
+<div class="nav-bar">
+    <button class="nav-btn" id="prevBtn" onclick="nav(-1)">&larr; Previous</button>
+    <div style="text-align:center;">
+        <div class="nav-title" id="navTitle">Title</div>
+        <div class="nav-info"><span id="navNum">1</span> / <span id="navTotal">0</span></div>
+    </div>
+    <button class="nav-btn" id="nextBtn" onclick="nav(1)">Next &rarr;</button>
+</div>
+
+<script>
+let cur = 0;
+let total = 0;
+let titles = [];
+let slideIds = [];
+
+function renderHeader(header, isHero = false) {
+    if (!header) return '';
+    let html = '';
+    if (header.tag) {
+        if (isHero) {
+            html += `<span class="tag" style="background:rgba(255,255,255,0.1);color:var(--teal-l);">${header.tag}</span>`;
+        } else {
+            let tc = header.tagColor || 'default';
+            // map specific colors back if available via class mapping or explicit inline if needed
+            html += `<span class="tag tag-${tc}">${header.tag}</span>`;
+        }
+    }
+    if (header.title) {
+        html += `<h1 ${isHero ? 'style="font-size:38px;line-height:1.15;max-width:700px;"' : ''}>${header.title}</h1>`;
+    }
+    if (header.subtitle) {
+        html += `<p class="sub" ${isHero ? 'style="margin-top:16px;margin-bottom:24px;max-width:650px;"' : ''}>${header.subtitle}</p>`;
+    }
+    return html;
+}
+
+function renderHero(slide) {
+    let ht = `<div class="hero-wrapper" style="flex:1;display:flex;flex-direction:column;justify-content:center;">`;
+    ht += renderHeader(slide.header, true);
+    ht += `<div style="width:60px;height:3px;background:var(--teal);margin-bottom:24px;"></div>`;
+    if (slide.content) {
+        ht += slide.content.map((p, i) => `<p class="hero-p" style="font-size:13px;${i===0 ? 'color:rgba(255,255,255,0.4);': ''}">${p}</p>`).join('');
+    }
+    ht += `</div>`;
+    return ht;
+}
+
+function renderProcess(slide) {
+    let ht = `<div class="accent-bar"></div>`;
+    ht += renderHeader(slide.header);
+    if (slide.steps) {
+        slide.steps.forEach(s => {
+            let clsColor = s.color || 'medium';
+            if(clsColor === 'default') clsColor = 'medium';
+            let colorVar = `var(--${clsColor})`;
+            
+            ht += `<div class="step mt24" style="border-color:${colorVar};">`;
+            ht += `<div class="step-n" style="background:${colorVar};">${s.number}</div>`;
+            ht += `<div>`;
+            if (s.heading) ht += `<h4>${s.heading}</h4>`;
+            if (s.text) ht += s.text.map(t => `<p>${t}</p>`).join('');
+            
+            if (s.details && s.details.length > 0) {
+                ht += `<div class="step-detail mt16">`;
+                s.details.forEach((d, idx) => {
+                    // alternate mock colors based on index for variety
+                    const colors = ['var(--teal-p)', 'var(--gl)', 'var(--bl)', 'var(--al)'];
+                    const txtColors = ['var(--teal)', 'var(--grn)', 'var(--blu)', 'var(--amb)'];
+                    ht += `<div class="step-col">`;
+                    if (d.title) ht += `<h5>${d.title}</h5>`;
+                    if (d.tags) d.tags.forEach((tg, ti) => {
+                        let bk = colors[ti % colors.length];
+                        let tk = txtColors[ti % txtColors.length];
+                        if(d.title.includes("Channels")) {
+                            ht += `<span class="ch-tag" style="background:${bk};color:${tk};">${tg}</span>`;
+                        } else {
+                            ht += `<p style="margin-bottom:4px">${tg}</p>`; // Fallback for simple p elements that were incorrectly parsed as ch-tags
+                        }
+                    }); 
+                    if (d.text) ht += `<p>${d.text}</p>`;
+                    ht += `</div>`;
+                });
+                ht += `</div>`;
+            }
+            ht += `</div></div>`;
+        });
+    }
+    return ht;
+}
+
+function renderGridCards(slide) {
+    let ht = slide.theme !== 'dark' && slide.theme !== 'medium' ? `<div class="accent-bar"></div>` : '';
+    ht += renderHeader(slide.header);
+    if (slide.grids) {
+        slide.grids.forEach(g => {
+            ht += `<div class="${g.type} mt16">`;
+            g.cards.forEach(c => {
+                let cardCls = c.theme === 'dark' ? 'card-dark' : 'card';
+                // optional colored border top based on randomness for demo if missing
+                let topColors = ['var(--teal)', 'var(--amb)', 'var(--pur)', 'var(--red)'];
+                let tC = c.topColor ? (c.topColor === 'none' ? 'transparent' : 'var(--' + c.topColor + ')') : topColors[Math.floor(Math.random()*topColors.length)];
+                
+                ht += `<div class="${cardCls}" style="border-top: 4px solid ${tC}">`;
+                if (c.heading) ht += `<h4>${c.heading}</h4>`;
+                if (c.text) ht += c.text.map(t => `<p class="mt16">${t}</p>`).join('');
+                ht += `</div>`;
+            });
+            ht += `</div>`;
+        });
+    }
+    return ht;
+}
+
+function renderBeforeAfter(slide) {
+    let ht = `<div class="accent-bar"></div>`;
+    ht += renderHeader(slide.header);
+    if (slide.comparisons) {
+        slide.comparisons.forEach(c => {
+            ht += `<div class="ba mt24 mb16">`;
+            ht += `<div class="ba-before"><h5>${c.before.heading}</h5><p>${c.before.text}</p></div>`;
+            ht += `<div class="ba-after"><h5>${c.after.heading}</h5><p>${c.after.text}</p></div>`;
+            ht += `</div>`;
+        });
+    }
+    return ht;
+}
+
+function renderTimeline(slide) {
+    let ht = `<div class="accent-bar"></div>`;
+    ht += renderHeader(slide.header);
+    if (slide.timeline) {
+        ht += `<div class="tl mt16">`;
+        slide.timeline.forEach(t => {
+            ht += `<div class="tl-item">`;
+            ht += `<h4>${t.heading}</h4><div class="dur">${t.duration}</div><p>${t.text}</p>`;
+            ht += `</div>`;
+        });
+        ht += `</div>`;
+    }
+    return ht;
+}
+
+function renderTableLayout(slide) {
+    let ht = `<div class="accent-bar"></div>`;
+    ht += renderHeader(slide.header);
+    if (slide.table && slide.table.headers) {
+        ht += `<div style="overflow-x:auto;margin-top:16px;">`;
+        ht += `<table class="cost-tbl mt24" style="min-width:900px;"><thead><tr>`;
+        slide.table.headers.forEach(th => ht += `<th>${th}</th>`);
+        ht += `</tr></thead><tbody>`;
+        slide.table.rows.forEach(r => {
+            ht += `<tr>`;
+            r.forEach(td => ht += `<td>${td}</td>`);
+            ht += `</tr>`;
+        });
+        ht += `</tbody></table></div>`;
+    }
+    if (slide.grid) {
+        ht += `<div class="grid3 mt32">`;
+        slide.grid.forEach(c => {
+            ht += `<div class="card" style="text-align:center;border-color:var(--teal);">`;
+            c.forEach((p,i) => {
+                if (i===0) ht += `<p style="font-family:'DM Serif Display';font-size:28px;color:var(--teal);">${p}</p>`;
+                else ht += `<p style="font-size:12px;color:var(--gr);">${p}</p>`;
+            });
+            ht += `</div>`;
+        });
+        ht += `</div>`;
+    }
+    return ht;
+}
+
+function renderHubSpoke(slide) {
+    let ht = slide.theme !== 'dark' && slide.theme !== 'medium' ? `<div class="accent-bar"></div>` : '';
+    ht += renderHeader(slide.header);
+    
+    const hubTitle = slide.hub?.title || "Core";
+    const hubSub = slide.hub?.subtitle || "Hub";
+    const nodes = slide.nodes || [];
+    
+    const cx = 450;
+    const cy = 280;
+    const radius = 300; 
+    
+    // Dynamic Theme Color Engine
+    const isLight = slide.theme === 'light';
+    const isMed = slide.theme === 'medium';
+    
+    // Dark lines overlay cleanly on white canvas
+    const lineCol = isLight ? 'rgba(17,24,39,0.3)' : (isMed ? 'rgba(255,255,255,0.2)' : 'rgba(139,92,246,0.25)');
+    const ringStroke1 = isLight ? 'rgba(17,24,39,0.1)' : (isMed ? 'rgba(255,255,255,0.15)' : 'rgba(139,92,246,0.2)');
+    const ringStroke2 = isLight ? 'rgba(17,24,39,0.2)' : (isMed ? 'rgba(255,255,255,0.25)' : 'rgba(139,92,246,0.4)');
+    
+    // Purple nodes in Light Themes for vibrant brand contrast 
+    const nodeBg = isLight ? '#8b5cf6' : (isMed ? 'rgba(0,0,0,0.15)' : '#2a1b54');
+    const centerBg = isLight ? '#8b5cf6' : (isMed ? 'rgba(0,0,0,0.3)' : '#1e143f');
+    
+    // Sharp bright strokes to edge out the purple nodes in Light Mode
+    const nodeStroke = isLight ? 'rgba(255,255,255,0.6)' : (isMed ? 'rgba(255,255,255,0.3)' : 'rgba(139,92,246,0.6)');
+    const centerStroke = isLight ? 'rgba(255,255,255,0.6)' : (isMed ? 'rgba(255,255,255,0.4)' : 'rgba(139,92,246,0.7)');
+    
+    const fillLabel = '#ffffff'; 
+    const fillSub = isLight ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.5)';
+    const fillTag = (isLight || isMed) ? '#c4b5fd' : '#8b5cf6'; // Keep light violet tags so they don't vanish into pure purple nodes
+    
+    ht += `
+    <style>
+    #${slide.id} .sub { margin-bottom: 4px !important; }
+    .hub-svg-wrap { position: relative; max-width: 950px; width: 100%; margin: 8px auto 16px; display: block; }
+    .hub-svg-wrap svg { width: 100%; height: auto; max-height: 64vh; display: block; overflow: visible; }
+    .hub-svg-wrap g { transform-origin: center; } 
+    </style>
+    <div class="hub-svg-wrap custom-html-container">
+      <svg viewBox="20 -150 860 860" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="hubGlow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <style>
+            @keyframes fadeScaleIn {
+              0% { opacity: 0; transform: scale(0.9); }
+              100% { opacity: 1; transform: scale(1); }
+            }
+            .node-group { opacity: 0; }
+          </style>
+        </defs>
+    `;
+    
+    let linesHtml = "";
+    let nodesHtml = "";
+    
+    const count = Math.min(nodes.length, 8); 
+    const angleStep = (2 * Math.PI) / count;
+    
+    for (let i = 0; i < count; i++) {
+        // Start perfectly at top center (-PI/2)
+        const angle = (i * angleStep) - (Math.PI / 2);
+        const nx = cx + radius * Math.cos(angle);
+        const ny = cy + radius * Math.sin(angle);
+        
+        let node = nodes[i];
+        let delay = 0.5 + (i * 0.15); 
+        
+        linesHtml += `<line x1="${cx}" y1="${cy}" x2="${nx}" y2="${ny}" stroke="${lineCol}" stroke-width="2" stroke-dasharray="6,6" />`;
+        
+        nodesHtml += `
+        <g class="node-group" style="animation: fadeScaleIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards ${delay}s; transform-origin: ${nx}px ${ny}px;">
+            <circle cx="${nx}" cy="${ny}" r="115" fill="${nodeBg}" stroke="${nodeStroke}" stroke-width="2">
+                <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite" begin="${i * 0.4}s"/>
+            </circle>
+            <text x="${nx}" y="${ny - 18}" text-anchor="middle" font-family="'DM Mono', monospace" font-size="21" fill="${fillTag}" letter-spacing="1">${node.tag || ('T'+(i+1))}</text>
+            <text x="${nx}" y="${ny + 15}" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="24" fill="${fillLabel}" font-weight="500">${node.label}</text>
+            ${node.sublabel ? `<text x="${nx}" y="${ny + 38}" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="17" fill="${fillSub}">${node.sublabel}</text>` : ''}
+        </g>
+        `;
+    }
+    
+    ht += linesHtml;
+    
+    // Center Hub Rings
+    ht += `
+        <circle cx="${cx}" cy="${cy}" r="155" fill="none" stroke="${ringStroke1}" stroke-width="1.5">
+            <animate attributeName="r" values="155;175;155" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.2;0.05;0.2" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="${cx}" cy="${cy}" r="135" fill="none" stroke="${ringStroke2}" stroke-width="1.5"/>
+        <circle cx="${cx}" cy="${cy}" r="115" fill="${centerBg}" stroke="${centerStroke}" stroke-width="2" filter="url(#hubGlow)">
+             <animate attributeName="stroke-opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        
+        <text x="${cx}" y="${cy - 5}" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="28" fill="${fillLabel}" letter-spacing="0.5">${hubTitle}</text>
+        <text x="${cx}" y="${cy + 25}" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="22" font-style="italic" fill="${fillTag}" letter-spacing="0.5">${hubSub}</text>
+    `;
+    
+    ht += nodesHtml;
+    
+    ht += `
+      </svg>
+    </div>
+    `;
+    
+    return ht;
+}
+
+function renderCustomHTML(slide) {
+    let ht = slide.theme !== 'dark' && slide.theme !== 'medium' ? `<div class="accent-bar"></div>` : '';
+    ht += renderHeader(slide.header);
+    if (slide.html) {
+        ht += `<div class="mt24 custom-html-container">\n${slide.html}\n</div>`;
+    }
+    return ht;
+}
+
+function buildTemplateEngine() {
+    return {
+        Hero: renderHero,
+        Process: renderProcess,
+        GridCards: renderGridCards,
+        BeforeAfter: renderBeforeAfter,
+        Timeline: renderTimeline,
+        TableLayout: renderTableLayout,
+        HubSpoke: renderHubSpoke,
+        CustomHTML: renderCustomHTML,
+        Unknown: slide => {
+            return renderHeader(slide.header) + `<p style="color:red">Unknown template or generic slide.</p>`;
+        }
+    };
+}
+
+const templates = buildTemplateEngine();
+
+async function init() {
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const deckName = urlParams.get('deck') || '001_template_8c41d7f2';
+        
+        if (!deckName) {
+            document.getElementById('slides-container').innerHTML = "<div class='slide active slide-dark' style='justify-content:center;align-items:center;opacity:1;visibility:visible;'><h2 style='opacity:0.3'>No presentation specified.</h2></div>";
+            return;
+        }
+
+        const res = await fetch(`deck_jsons/${deckName}.json?t=${new Date().getTime()}`);
+        if (!res.ok) throw new Error("Presentation not found.");
+        
+        const data = await res.json();
+        const slides = data.slides || data;
+        
+        const cleanName = deckName.replace(/_[a-f0-9-]+$/i, '').replace(/_/g, ' ');
+        document.title = cleanName.charAt(0).toUpperCase() + cleanName.slice(1) + " | Presentation";
+        total = slides.length;
+        document.getElementById('navTotal').textContent = total;
+        
+        const container = document.getElementById('slides-container');
+        
+        slides.forEach((slide) => {
+            slideIds.push(slide.id);
+            titles.push(slide.header?.title || `Slide ${slide.id}`);
+            const div = document.createElement('div');
+            
+            let cls = 'slide';
+            if (slide.theme === 'dark') cls += ' slide-dark';
+            else if (slide.theme === 'medium') cls += ' slide-medium';
+            else cls += ' slide-light';
+            
+            div.className = cls;
+            div.id = slide.id;
+            
+            const renderer = templates[slide.template] || templates.Unknown;
+            div.innerHTML = renderer(slide);
+            container.appendChild(div);
+        });
+        
+        let startIdx = 0;
+        if (window.location.hash) {
+            let hashVal = window.location.hash.substring(1);
+            let parsed = parseInt(hashVal);
+            if (!isNaN(parsed) && parsed > 0 && parsed <= total) {
+                startIdx = parsed - 1;
+            } else {
+                let idIdx = slideIds.indexOf(hashVal);
+                if (idIdx !== -1) startIdx = idIdx;
+            }
+        }
+        goto(startIdx);
+    } catch(err) {
+        console.error("Failed to load template data:", err);
+        document.getElementById('slides-container').innerHTML = "<p style='color:red;padding:20px'>Error loading slides. Check console.</p>";
+    }
+}
+
+function goto(index) {
+  if (index < 0 || index >= total) return;
+  
+  const currentId = slideIds[cur];
+  if (document.getElementById(currentId)) {
+      document.getElementById(currentId).classList.remove('active');
+  }
+  
+  cur = index;
+  const nextId = slideIds[cur];
+  
+  const slideEl = document.getElementById(nextId);
+  if (slideEl) {
+      slideEl.classList.add('active');
+  }
+  
+  document.getElementById('navNum').textContent = cur + 1;
+  document.getElementById('navTitle').textContent = titles[cur] || '';
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === total - 1;
+  document.getElementById('progress').style.width = ((cur+1)/total*100)+'%';
+  window.scrollTo(0, 0);
+  
+  // Natively sync the URL without refreshing or scrolling
+  window.history.replaceState(null, null, '#' + (cur + 1));
+}
+
+function nav(d) {
+  goto(cur + d);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nav(1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); nav(-1); }
+});
+
+init();
+</script>
+</body>
+</html>
