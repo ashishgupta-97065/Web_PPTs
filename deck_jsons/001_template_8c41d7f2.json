@@ -291,7 +291,7 @@
     {
       "id": "slide8",
       "template": "HubSpoke",
-      "theme": "light",
+      "theme": "dark",
       "header": {
         "tag": "Template 8",
         "tagColor": "pur",

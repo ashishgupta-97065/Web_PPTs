@@ -204,18 +204,22 @@ function renderHubSpoke(slide) {
     const isLight = slide.theme === 'light';
     const isMed = slide.theme === 'medium';
     
-    const lineCol = isMed ? 'rgba(255,255,255,0.2)' : 'rgba(139,92,246,0.25)';
-    const nodeBg = isLight ? '#ffffff' : (isMed ? 'rgba(0,0,0,0.15)' : '#2a1b54');
-    const nodeStroke = isLight ? 'rgba(139,92,246,0.4)' : (isMed ? 'rgba(255,255,255,0.3)' : 'rgba(139,92,246,0.6)');
-    const fillLabel = isLight ? '#111827' : '#ffffff';
-    const fillSub = isLight ? '#6b7280' : 'rgba(255,255,255,0.5)';
-    const fillTag = isMed ? '#c4b5fd' : '#8b5cf6'; // Avoid purple-on-purple invisibility
+    // Dark lines for connections & rings in light mode
+    const lineCol = isLight ? 'rgba(17,24,39,0.3)' : (isMed ? 'rgba(255,255,255,0.2)' : 'rgba(139,92,246,0.25)');
+    const ringStroke1 = isLight ? 'rgba(17,24,39,0.1)' : (isMed ? 'rgba(255,255,255,0.15)' : 'rgba(139,92,246,0.2)');
+    const ringStroke2 = isLight ? 'rgba(17,24,39,0.2)' : (isMed ? 'rgba(255,255,255,0.25)' : 'rgba(139,92,246,0.4)');
     
-    const centerBg = isLight ? '#f9fafb' : (isMed ? 'rgba(0,0,0,0.3)' : '#1e143f');
-    const centerStroke = isLight ? 'rgba(139,92,246,0.6)' : (isMed ? 'rgba(255,255,255,0.4)' : 'rgba(139,92,246,0.7)');
+    // Dark nodes universally to lock high-contrast white text legibility 
+    const nodeBg = isLight ? '#111827' : (isMed ? 'rgba(0,0,0,0.15)' : '#2a1b54');
+    const centerBg = isLight ? '#111827' : (isMed ? 'rgba(0,0,0,0.3)' : '#1e143f');
     
-    const ringStroke1 = isMed ? 'rgba(255,255,255,0.15)' : 'rgba(139,92,246,0.2)';
-    const ringStroke2 = isMed ? 'rgba(255,255,255,0.25)' : 'rgba(139,92,246,0.4)';
+    // Deep purple strokes for that crisp AI aesthetic glow against the dark nodes
+    const nodeStroke = isLight ? 'rgba(139,92,246,0.9)' : (isMed ? 'rgba(255,255,255,0.3)' : 'rgba(139,92,246,0.6)');
+    const centerStroke = isLight ? '#8b5cf6' : (isMed ? 'rgba(255,255,255,0.4)' : 'rgba(139,92,246,0.7)');
+    
+    const fillLabel = '#ffffff'; // White text universally because all nodes are now drawn dark
+    const fillSub = isLight ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.5)';
+    const fillTag = isMed ? '#c4b5fd' : '#8b5cf6'; // Keep bright purple tags
     
     ht += `
     <style>
