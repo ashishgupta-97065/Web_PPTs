@@ -291,7 +291,7 @@
     {
       "id": "slide8",
       "template": "HubSpoke",
-      "theme": "dark",
+      "theme": "light",
       "header": {
         "tag": "Template 8",
         "tagColor": "pur",
@@ -303,11 +303,30 @@
         "subtitle": "JS Engine"
       },
       "nodes": [
-        { "tag": "N1", "label": "Client Node" },
-        { "tag": "N2", "label": "Proxy Array", "sublabel": "Active" },
-        { "tag": "N3", "label": "Load Balancer", "sublabel": "Round Robin" },
-        { "tag": "N4", "label": "Database", "sublabel": "PostgreSQL" },
-        { "tag": "N5", "label": "Lambda", "sublabel": "Serverless AWS" }
+        {
+          "tag": "N1",
+          "label": "Client Node"
+        },
+        {
+          "tag": "N2",
+          "label": "Proxy Array",
+          "sublabel": "Active"
+        },
+        {
+          "tag": "N3",
+          "label": "Load Balancer",
+          "sublabel": "Round Robin"
+        },
+        {
+          "tag": "N4",
+          "label": "Database",
+          "sublabel": "PostgreSQL"
+        },
+        {
+          "tag": "N5",
+          "label": "Lambda",
+          "sublabel": "Serverless AWS"
+        }
       ]
     }
   ]
