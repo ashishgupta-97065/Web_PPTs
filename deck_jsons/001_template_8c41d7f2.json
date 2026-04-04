@@ -44,13 +44,13 @@
       "template": "Hero",
       "theme": "dark",
       "header": {
-        "tag": "The Problem",
+        "tag": "Template 1",
         "tagColor": "default",
-        "title": "HERO: The System Is Operationally Functional, But Experientially Invisible."
+        "title": "HERO: The High-Impact Opening Slide"
       },
       "content": [
-        "We mapped three complete patient journeys at PGIMER \u2014 a new patient, an existing offline patient, and an online pre-registered patient. The findings are consistent across all three: the system tracks cards and CR numbers, but it does not track patients. The moment the card leaves the patient's hand, they become invisible.",
-        "Based on ground research at PGIMER Cardiology OPD, March 2026"
+        "Use the Hero template to create strong, arresting opening statements. The text is perfectly centered and scaled up dynamically.",
+        "Perfect for title slides, profound problem statements, or closing 'Thank You' hooks."
       ]
     },
     {
@@ -58,89 +58,46 @@
       "template": "Process",
       "theme": "light",
       "header": {
-        "tag": "Phase 1 \u00b7 Pre-Visit & Arrival",
+        "tag": "Template 2",
         "tagColor": "medium",
-        "title": "PROCESS: Steps 1\u20133: Before the Patient Sits Down"
+        "title": "PROCESS: Step-by-Step Journeys"
       },
       "steps": [
         {
           "number": "1",
           "color": "default",
-          "heading": "Register & Choose Slot",
+          "heading": "System Initiation",
           "text": [
-            "Via app, WhatsApp bot, PGIMER portal, or IVR helpline (for non-smartphone users). Patient selects department + preferred date/time window. System auto-stamps OPD card digitally. Confirmation + QR code sent via all active channels."
+            "The Process template elegantly maps out sequences. Each step supports custom numbering, variable colors, and deep nested detail blocks. Use it to explain workflows, manufacturing processes, or complex algorithms."
           ],
           "details": [
             {
               "title": "Channels",
               "tags": [
                 "\ud83d\udcf1 App",
-                "\ud83d\udcac WhatsApp",
-                "\ud83c\udf10 Portal",
-                "\ud83d\udcde IVR"
+                "\ud83d\udcac SMS"
               ]
             },
             {
               "title": "Backend",
-              "text": "Queue engine assigns position. OPD card auto-generated. QR code created. Slot confirmed."
-            },
-            {
-              "title": "Cost Components",
-              "text": "WhatsApp Business API: \u20b9xxx/msg. SMS Gateway: \u20b9xxx/msg. IVR: \u20b9xxx/call. Portal dev: one-time."
+              "text": "Triggers primary lambda functions in the system."
             }
           ]
         },
         {
           "number": "2",
           "color": "default",
-          "heading": "Pre-Visit Reminder (24hrs Before)",
+          "heading": "Execution Phase",
           "text": [
-            "Automated reminder: date, time slot, department, floor/room, documents to carry. Includes map link for first-timers. For non-smartphone: AI voice call in Hindi/Punjabi. Retry 12hrs before if missed."
-          ],
-          "details": [
-            {
-              "title": "Channels",
-              "tags": [
-                "\ud83d\udcac WhatsApp",
-                "\u2709\ufe0f SMS",
-                "\ud83e\udd16 AI Call",
-                "\ud83d\udcf1 Push"
-              ]
-            },
-            {
-              "title": "Backend",
-              "text": "Auto-triggered 24hrs before slot. AI call system (Hindi, Punjabi, English). Retry logic on failure."
-            },
-            {
-              "title": "Impact",
-              "text": "Reduces no-shows by 30-40% (evidence-based). Prepares patient mentally. Reduces Day-0 confusion."
-            }
+            "You can easily drop in an infinite number of steps, and the engine will natively scroll them perfectly without breaking the visual bounds."
           ]
         },
         {
           "number": "3",
-          "color": "default",
-          "heading": "Frictionless Check-In at Hospital",
+          "color": "grn",
+          "heading": "Verification & Output",
           "text": [
-            "Online patients: Scan QR at department kiosk or tap \"I've arrived\" in app. Zero queues. Walk-in patients: Self-service kiosk at entry \u2192 Enter Aadhaar/phone \u2192 System creates record \u2192 Prints token + QR \u2192 Added to queue instantly. Assisted counter: For elderly/non-digital patients \u2014 volunteer registers them, explains process, prints token."
-          ],
-          "details": [
-            {
-              "title": "Channels",
-              "tags": [
-                "\ud83d\udda5\ufe0f Kiosk",
-                "\ud83d\udcf1 App",
-                "\ud83d\udc64 Staff"
-              ]
-            },
-            {
-              "title": "Backend",
-              "text": "Real-time queue position assigned. Department dashboard updated. Wait time calculated from avg consult duration."
-            },
-            {
-              "title": "Cost Components",
-              "text": "Kiosk hardware: \u20b9xxx each. 10 kiosks for Phase 1 departments. Token printer: \u20b9xxx each."
-            }
+            "You can selectively color the number badges (like the green one here) directly from the JSON to signify errors, success, or warnings."
           ]
         }
       ]
@@ -150,40 +107,30 @@
       "template": "BeforeAfter",
       "theme": "light",
       "header": {
-        "tag": "Stakeholder Impact",
-        "tagColor": "grn",
-        "title": "BEFOREAFTER: How This Changes Life for Doctors & Support Staff",
-        "subtitle": "A system that only serves patients but burdens staff will not be adopted. This reduces friction for everyone."
+        "tag": "Template 3",
+        "tagColor": "red",
+        "title": "BEFORE & AFTER: Clear Comparisons",
+        "subtitle": "A perfect split-screen layout designed to highlight the immediate delta between a legacy system and a modern solution."
       },
       "comparisons": [
         {
           "before": {
-            "heading": "Doctor \u2014 Today",
-            "text": "Constant door interruptions. Patients asking \"When is my turn?\" every 2 minutes. No patient context before walk-in. Paper files missing. Mental overhead of managing anxious crowd outside. Stress from confrontation."
+            "heading": "Legacy Workflow",
+            "text": "Highly manual processes, prone to human error, siloed data architectures, and frustratingly slow validation loops."
           },
           "after": {
-            "heading": "Doctor \u2014 With System",
-            "text": "Zero door interruptions. One-click \"Next Patient\" button. Patient summary pre-loaded (Phase 2). No crowd management. Doctor focuses entirely on the patient in front of them. Reduced confrontation = reduced burnout."
+            "heading": "Modern Architecture",
+            "text": "Automated pipelines, pristine data lakes, predictive AI integrations, and instant mathematical verification."
           }
         },
         {
           "before": {
-            "heading": "Support Staff \u2014 Today",
-            "text": "Manually managing queues. Answering \"When is my turn?\" hundreds of times daily. Handling frustration and occasional aggression. Manual card stamping with breakable terminals. No fallback when hardware fails."
+            "heading": "Financial Cost",
+            "text": "Massive upfront CapEx and unpredictable maintenance overhead."
           },
           "after": {
-            "heading": "Support Staff \u2014 With System",
-            "text": "Queue is self-managed. Screen and notifications answer the #1 question automatically. Reduced confrontations. Digital stamping eliminates terminal dependency. Staff focuses on patients who genuinely need help."
-          }
-        },
-        {
-          "before": {
-            "heading": "Administration \u2014 Today",
-            "text": "No real-time visibility into patient load. No data on wait times. No feedback mechanism. No bottleneck identification. Infrastructure failures discovered when queues explode."
-          },
-          "after": {
-            "heading": "Administration \u2014 With System",
-            "text": "Live dashboard: patient flow across departments. Historical analytics for planning. Patient feedback scores. Proactive infrastructure alerts. Evidence for budget requests and accreditation."
+            "heading": "SaaS Economics",
+            "text": "Predictable, usage-based OpEx that easily scales dynamically with company growth."
           }
         }
       ]
@@ -193,10 +140,10 @@
       "template": "GridCards",
       "theme": "medium",
       "header": {
-        "tag": "Phase 2",
+        "tag": "Template 4",
         "tagColor": "default",
-        "title": "GRIDCARDS: Digital Patient Platform & App",
-        "subtitle": "Once Phase 1 is stable and proven, layer on a comprehensive patient app \u2014 a digital companion for every visit and between visits. This is the long-term relationship with the patient."
+        "title": "GRIDCARDS: Dense Feature Matrices",
+        "subtitle": "Seamlessly layout dozens of independent thoughts. The engine supports 2-column, 3-column, and 4-column configurations natively."
       },
       "grids": [
         {
@@ -204,65 +151,44 @@
           "cards": [
             {
               "theme": "light",
-              "heading": "\ud83d\udccb Visit History",
+              "heading": "\u26a1 High Performance",
               "text": [
-                "Complete timeline of every PGI visit \u2014 date, department, doctor, diagnosis, prescriptions. Replaces the fat paper file."
+                "Zero frameworks. Pure vanilla javascript routing ensures absolute maximum browser framerates."
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83d\udd2c Test Results",
+              "heading": "\ud83d\udd12 Secure",
               "text": [
-                "Auto-uploaded from PGI labs. Photo upload for outside lab results. All linked to visit timeline."
+                "No backend required. The entire engine exists completely in the client's browser, preventing external vulnerabilities."
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83d\udc68\u200d\u2695\ufe0f Doctor's Notes",
+              "heading": "\ud83c\udfa8 Customizable",
               "text": [
-                "Key points from each consultation in simple language. Diagnosis, observations, recommendations. Patient can revisit anytime."
+                "Fully CSS-driven. Change mathematical variables in one file to completely shift the global aesthetic."
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83d\udc8a Medication Tracker",
+              "heading": "\ud83d\udcf1 Responsive",
               "text": [
-                "Current prescriptions, dosage, timing. Reminders. Refill alerts. Drug interaction warnings."
+                "These cards automatically stack into 1-column layouts universally on mobile screens."
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83e\udd16 AI Health Assistant",
+              "heading": "\u23f1\ufe0f Staggered",
               "text": [
-                "Ask questions in Hindi/English between visits. \"When should I take this?\" \"What does this report mean?\" Bridge between consultations."
+                "Watch closely \u2014 every card perfectly respects the nth-child animation delay for live cascading."
               ]
             },
             {
               "theme": "light",
-              "heading": "\ud83d\udc6a Family Access",
+              "heading": "\ud83d\udcc1 Data Driven",
               "text": [
-                "Add family members as caregivers. Son in Gurugram tracks father's appointments, reports, medications remotely. Shared health dashboard."
-              ]
-            },
-            {
-              "theme": "light",
-              "heading": "\ud83d\udcca Health Trends",
-              "text": [
-                "Visualise BP, sugar, cholesterol over time. Simple graphs. Visible to patient and doctor both."
-              ]
-            },
-            {
-              "theme": "light",
-              "heading": "\ud83d\udcc5 Appointments",
-              "text": [
-                "Book, reschedule, cancel. View slots by department/doctor. Auto-reminders at 48hrs, 24hrs, 2hrs."
-              ]
-            },
-            {
-              "theme": "light",
-              "heading": "\ud83c\udfe5 PGI Navigator",
-              "text": [
-                "Indoor wayfinding. \"How to get to Cardiology from main gate?\" Step-by-step with landmarks. Critical for first-timers and elderly."
+                "If you need to fix a typo, you never touch HTML. You just edit the raw JSON text string directly."
               ]
             }
           ]
@@ -274,36 +200,26 @@
       "template": "Timeline",
       "theme": "light",
       "header": {
-        "tag": "Execution Plan",
-        "tagColor": "medium",
-        "title": "TIMELINE: Implementation Roadmap",
-        "subtitle": "Phased rollout \u2014 prove it in one department, then scale. Each phase has clear deliverables, costs, and success metrics."
+        "tag": "Template 5",
+        "tagColor": "blu",
+        "title": "TIMELINE: Project Roadmaps",
+        "subtitle": "A beautifully clean, vertical timeline structure. Great for implementation plans, historical retrospectives, or funding milestones."
       },
       "timeline": [
         {
-          "heading": "Phase 1A: Pilot in Cardiology OPD",
-          "duration": "Months 1\u20133 \u00b7 Est. \u20b9xxx",
-          "text": "Build: Queue management engine. WhatsApp/SMS notification system. 3 department display screens. 2 self-service kiosks. AI calling integration. Assisted registration desk setup. Deliver: Live queue for Cardiology OPD. All 5 notification channels active. Test loop priority re-entry system. Post-visit feedback mechanism. Measure: Patient satisfaction score. Average perceived wait time. Door-crowding reduction. Staff feedback."
+          "heading": "Phase 1: Proof of Concept",
+          "duration": "Months 1\u20133 \u00b7 Est. $50k",
+          "text": "Build core infrastructure. Deploy beta application to internal stakeholders. Validate baseline assumptions."
         },
         {
-          "heading": "Phase 1B: Expand to 4 More Departments",
-          "duration": "Months 4\u20136 \u00b7 Est. \u20b9xxx",
-          "text": "Build: Scale queue system to Neurology, Gastroenterology, Orthopaedics, Ophthalmology. 8 additional screens. 4 additional kiosks. Staff training across departments. Deliver: 5 departments fully live. Cross-department dashboard for admin. Feedback data loop operational. Measure: Satisfaction trend across departments. No-show rate change. Queue depth patterns."
+          "heading": "Phase 2: Market Expansion",
+          "duration": "Months 4\u20138 \u00b7 Est. $150k",
+          "text": "Open API endpoints to public developers. Initiate primary marketing campaigns. Expand server capacity."
         },
         {
-          "heading": "Phase 1C: Full OPD Coverage",
-          "duration": "Months 7\u20139 \u00b7 Est. \u20b9xxx",
-          "text": "Build: All remaining OPD departments. Pharmacy queue integration. Lab queue integration. Audio announcement system. Full kiosk network. Deliver: Every OPD department has live queue, screens, and notifications. End-to-end patient journey tracked. Measure: Institution-wide satisfaction. Average wait reduction. Staff time reclaimed."
-        },
-        {
-          "heading": "Phase 2: Digital Patient Platform & App",
-          "duration": "Months 10\u201315 \u00b7 Est. \u20b9xxx",
-          "text": "Build: PGIMER patient app (iOS + Android). Visit history + doctor notes. Test result upload/integration. Medication tracker. AI health assistant. Family access dashboard. Health trends. Indoor wayfinding. Deliver: Full patient companion app. Digital health records for every registered patient. AI assistant in Hindi + English. Measure: App adoption rate. Medication adherence improvement. Follow-up compliance. Patient NPS."
-        },
-        {
-          "heading": "Phase 3: Intelligence & Scale",
-          "duration": "Months 16\u201318 \u00b7 Est. \u20b9xxx",
-          "text": "Build: AI-powered wait time predictions. Research data pipeline. No-show prediction model. Cross-department referral system. Model documentation for PGI Satellite Sangrur. Deliver: Predictive operations dashboard. Research-grade anonymised datasets. Replicable model for other centres. Measure: Prediction accuracy. Research papers enabled. Scalability validation."
+          "heading": "Phase 3: Scale & Monetize",
+          "duration": "Months 9\u201312 \u00b7 Est. $300k",
+          "text": "Introduce enterprise tier. Roll out predictive analytics features. Shift focus to customer retention schemas."
         }
       ]
     },
@@ -312,74 +228,51 @@
       "template": "TableLayout",
       "theme": "light",
       "header": {
-        "tag": "Investment",
+        "tag": "Template 6",
         "tagColor": "amb",
-        "title": "TABLELAYOUT: Execution Cost Summary",
-        "subtitle": "Estimated costs for each phase. All figures are indicative and will be refined in the detailed technical proposal post-meeting."
+        "title": "TABLE: Dense Data & Pricing",
+        "subtitle": "Renders responsive tabular data with an optional bottom highlight grid for key metric takeaways."
       },
       "table": {
         "headers": [
-          "Phase",
-          "Timeline",
-          "Scope",
-          "Estimated Cost",
-          "Key Deliverables"
+          "Feature Tier",
+          "MAU Limit",
+          "Support Level",
+          "Monthly Cost"
         ],
         "rows": [
           [
-            "1A",
-            "Months 1\u20133",
-            "Cardiology OPD Pilot",
-            "\u20b9xxx",
-            "Queue engine, 5-channel notifications, 3 screens, 2 kiosks, test loop fix, feedback"
+            "Starter",
+            "10,000",
+            "Community / Email",
+            "$0"
           ],
           [
-            "1B",
-            "Months 4\u20136",
-            "4 More Departments",
-            "\u20b9xxx",
-            "Scale to 5 total departments, 8 screens, 4 kiosks, admin dashboard"
+            "Professional",
+            "100,000",
+            "24hr SLA",
+            "$99"
           ],
           [
-            "1C",
-            "Months 7\u20139",
-            "Full OPD",
-            "\u20b9xxx",
-            "All OPD departments, pharmacy + lab integration, audio system, full kiosk network"
-          ],
-          [
-            "2",
-            "Months 10\u201315",
-            "Patient App & Platform",
-            "\u20b9xxx",
-            "iOS + Android app, health records, AI assistant, medication tracker, family access"
-          ],
-          [
-            "3",
-            "Months 16\u201318",
-            "Intelligence & Scale",
-            "\u20b9xxx",
-            "AI predictions, research data, cross-department referrals, Sangrur replication model"
-          ],
-          [
-            "Total Estimated Investment",
-            "\u20b9xxx",
-            "Over 18 months. Phase 1A can demonstrate impact within 90 days."
+            "Enterprise",
+            "Unlimited",
+            "Dedicated Rep",
+            "$999"
           ]
         ]
       },
       "grid": [
         [
-          "90 Days",
-          "To first live deployment in Cardiology OPD"
+          "99.9%",
+          "Guaranteed architecture uptime SLA"
         ],
         [
-          "\u20b9xxx",
-          "Phase 1A cost \u2014 prove the concept with one department"
+          "$0",
+          "No hidden integration or seating fees"
         ],
         [
-          "86%\u2192",
-          "\"Excellent\" satisfaction with queue system (clinical evidence)"
+          "24/7",
+          "Global engineering support team"
         ]
       ]
     },
@@ -388,12 +281,12 @@
       "template": "CustomHTML",
       "theme": "dark",
       "header": {
-        "tag": "Live Demo",
-        "tagColor": "medium",
-        "title": "NETLIFY IMPORT: MedCore Architecture",
-        "subtitle": "This section was automatically sourced directly from the requested URL (div[2]) and injected inline."
+        "tag": "Template 7",
+        "tagColor": "pur",
+        "title": "CUSTOM: Infinite Possibilities",
+        "subtitle": "If none of the 6 core templates perfectly fit, drop pure SVG/HTML directly into the JSON. The engine natively parses it while preserving your uniform UI aesthetic headers."
       },
-      "html": "\n<style>\n.diagram-section {\n  background: var(--teal-900, #042d2d);\n  padding: 64px 72px 72px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 12px;\n  margin-top: 16px;\n  border: 1px solid rgba(45,189,189,0.3);\n}\n.diagram-section::before {\n  content: '';\n  position: absolute; inset: 0;\n  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(18,160,160,0.06) 0%, transparent 70%);\n}\n.diagram-title {\n  text-align: center;\n  font-family: 'DM Mono', monospace;\n  font-size: 10px;\n  letter-spacing: 0.25em;\n  text-transform: uppercase;\n  color: var(--teal-400, #2dbdbd);\n  margin-bottom: 48px;\n  position: relative;\n}\n.hub-container {\n  position: relative;\n  max-width: 900px;\n  margin: 0 auto;\n}\n#hub-svg {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n</style>\n\n<div class=\"diagram-section\">\n  <div class=\"diagram-title\">System Architecture \u2014 Hub &amp; Spoke Model</div>\n  <div class=\"hub-container\">\n    <svg id=\"hub-svg\" viewBox=\"0 0 900 560\" xmlns=\"http://www.w3.org/2000/svg\">\n      <defs>\n        <radialGradient id=\"hubGrad\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n          <stop offset=\"0%\" stop-color=\"#12a0a0\" stop-opacity=\"0.25\"/>\n          <stop offset=\"100%\" stop-color=\"#042d2d\" stop-opacity=\"0\"/>\n        </radialGradient>\n        <marker id=\"arrow\" markerWidth=\"6\" markerHeight=\"6\" refX=\"5\" refY=\"3\" orient=\"auto\">\n          <path d=\"M0,0 L0,6 L6,3 z\" fill=\"rgba(45,189,189,0.5)\"/>\n        </marker>\n        <filter id=\"glow\">\n          <feGaussianBlur stdDeviation=\"3\" result=\"blur\"/>\n          <feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge>\n        </filter>\n      </defs>\n\n      <!-- Background radial -->\n      <ellipse cx=\"450\" cy=\"280\" rx=\"340\" ry=\"220\" fill=\"url(#hubGrad)\"/>\n\n      <!-- Spoke lines -->\n      <!-- P1: 11 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"345\" y2=\"98\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <!-- P2: 1 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"555\" y2=\"98\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <!-- P3: 3 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"660\" y2=\"280\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <!-- P4: 5 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"555\" y2=\"462\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <!-- P5: 7 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"345\" y2=\"462\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <!-- P6: 9 o'clock -->\n      <line x1=\"450\" y1=\"280\" x2=\"240\" y2=\"280\" stroke=\"rgba(45,189,189,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n\n      <!-- Pulsing ring -->\n      <circle cx=\"450\" cy=\"280\" r=\"78\" fill=\"none\" stroke=\"rgba(45,189,189,0.12)\" stroke-width=\"1\">\n        <animate attributeName=\"r\" values=\"78;92;78\" dur=\"3s\" repeatCount=\"indefinite\"/>\n        <animate attributeName=\"stroke-opacity\" values=\"0.12;0.04;0.12\" dur=\"3s\" repeatCount=\"indefinite\"/>\n      </circle>\n      <circle cx=\"450\" cy=\"280\" r=\"65\" fill=\"none\" stroke=\"rgba(45,189,189,0.2)\" stroke-width=\"1\"/>\n\n      <!-- Centre hub -->\n      <circle cx=\"450\" cy=\"280\" r=\"60\" fill=\"#0a4a4a\" stroke=\"rgba(45,189,189,0.6)\" stroke-width=\"1.5\" filter=\"url(#glow)\"/>\n      <text x=\"450\" y=\"272\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17\" font-weight=\"400\" fill=\"rgba(255,255,255,0.9)\" letter-spacing=\"0.5\">MedCore</text>\n      <text x=\"450\" y=\"292\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17\" font-style=\"italic\" fill=\"#2dbdbd\" letter-spacing=\"0.5\">AI OS</text>\n\n      <!-- \u2500\u2500 PILLAR NODES \u2500\u2500 -->\n      <!-- P1: 11 o'clock \u2014 Patient Ingestion -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-1')\" style=\"cursor:pointer\">\n        <circle cx=\"345\" cy=\"98\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"0s\"/>\n        </circle>\n        <text x=\"345\" y=\"84\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">01</text>\n        <text x=\"345\" y=\"100\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Patient</text>\n        <text x=\"345\" y=\"116\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Ingestion</text>\n        <circle cx=\"345\" cy=\"98\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- P2: 1 o'clock \u2014 Ambient Clinical -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-2')\" style=\"cursor:pointer\">\n        <circle cx=\"555\" cy=\"98\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"0.6s\"/>\n        </circle>\n        <text x=\"555\" y=\"84\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">02</text>\n        <text x=\"555\" y=\"100\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Ambient</text>\n        <text x=\"555\" y=\"116\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Clinical AI</text>\n        <circle cx=\"555\" cy=\"98\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- P3: 3 o'clock \u2014 Diagnostic -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-3')\" style=\"cursor:pointer\">\n        <circle cx=\"660\" cy=\"280\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"1.2s\"/>\n        </circle>\n        <text x=\"660\" y=\"266\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">03</text>\n        <text x=\"660\" y=\"282\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Diagnostic</text>\n        <text x=\"660\" y=\"298\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Intelligence</text>\n        <circle cx=\"660\" cy=\"280\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- P4: 5 o'clock \u2014 Agentic Ops -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-4')\" style=\"cursor:pointer\">\n        <circle cx=\"555\" cy=\"462\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"1.8s\"/>\n        </circle>\n        <text x=\"555\" y=\"448\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">04</text>\n        <text x=\"555\" y=\"464\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Agentic</text>\n        <text x=\"555\" y=\"480\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Operations</text>\n        <circle cx=\"555\" cy=\"462\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- P5: 7 o'clock \u2014 Revenue -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-5')\" style=\"cursor:pointer\">\n        <circle cx=\"345\" cy=\"462\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"2.4s\"/>\n        </circle>\n        <text x=\"345\" y=\"448\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">05</text>\n        <text x=\"345\" y=\"464\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Revenue</text>\n        <text x=\"345\" y=\"480\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Cycle</text>\n        <circle cx=\"345\" cy=\"462\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- P6: 9 o'clock \u2014 Remote Care -->\n      <g class=\"pillar-node\" onclick=\"scrollToPillar('pillar-6')\" style=\"cursor:pointer\">\n        <circle cx=\"240\" cy=\"280\" r=\"58\" fill=\"#0d6363\" stroke=\"rgba(45,189,189,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;0.9;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"3s\"/>\n        </circle>\n        <text x=\"240\" y=\"266\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#2dbdbd\" letter-spacing=\"1\">06</text>\n        <text x=\"240\" y=\"282\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Remote</text>\n        <text x=\"240\" y=\"298\" text-anchor=\"middle\" font-family=\"Cormorant Garamond, serif\" font-size=\"17.5\" fill=\"white\">Care</text>\n        <circle cx=\"240\" cy=\"280\" r=\"58\" fill=\"transparent\" stroke=\"transparent\" stroke-width=\"8\"/>\n      </g>\n\n      <!-- Hover hint -->\n      <text x=\"450\" y=\"545\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"11\" fill=\"rgba(255,255,255,0.2)\" letter-spacing=\"1.5\">CLICK ANY NODE TO JUMP TO DETAIL</text>\n    </svg>\n  </div>\n</div>"
+      "html": "\n<style>\n.diagram-section {\n  background: var(--teal-900, #042d2d);\n  padding: 64px 72px 72px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 12px;\n  margin-top: 16px;\n  border: 1px solid rgba(139,92,246,0.3);\n}\n.diagram-section::before {\n  content: '';\n  position: absolute; inset: 0;\n  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(139,92,246,0.1) 0%, transparent 70%);\n}\n.diagram-title {\n  text-align: center;\n  font-family: 'DM Mono', monospace;\n  font-size: 10px;\n  letter-spacing: 0.25em;\n  text-transform: uppercase;\n  color: var(--medium, #8b5cf6);\n  margin-bottom: 48px;\n  position: relative;\n}\n.hub-container {\n  position: relative;\n  max-width: 900px;\n  margin: 0 auto;\n}\n#hub-svg {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n</style>\n\n<div class=\"diagram-section\">\n  <div class=\"diagram-title\">Bespoke Vector Animation Wrapper</div>\n  <div class=\"hub-container\">\n    <svg id=\"hub-svg\" viewBox=\"0 0 900 560\" xmlns=\"http://www.w3.org/2000/svg\">\n      <defs>\n        <radialGradient id=\"hubGrad\" cx=\"50%\" cy=\"50%\" r=\"50%\">\n          <stop offset=\"0%\" stop-color=\"#8b5cf6\" stop-opacity=\"0.15\"/>\n          <stop offset=\"100%\" stop-color=\"#160f2b\" stop-opacity=\"0\"/>\n        </radialGradient>\n        <marker id=\"arrow\" markerWidth=\"6\" markerHeight=\"6\" refX=\"5\" refY=\"3\" orient=\"auto\">\n          <path d=\"M0,0 L0,6 L6,3 z\" fill=\"rgba(139,92,246,0.5)\"/>\n        </marker>\n        <filter id=\"glow\">\n          <feGaussianBlur stdDeviation=\"3\" result=\"blur\"/>\n          <feMerge><feMergeNode in=\"blur\"/><feMergeNode in=\"SourceGraphic\"/></feMerge>\n        </filter>\n      </defs>\n\n      <ellipse cx=\"450\" cy=\"280\" rx=\"340\" ry=\"220\" fill=\"url(#hubGrad)\"/>\n      <line x1=\"450\" y1=\"280\" x2=\"345\" y2=\"98\" stroke=\"rgba(139,92,246,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <line x1=\"450\" y1=\"280\" x2=\"555\" y2=\"98\" stroke=\"rgba(139,92,246,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <line x1=\"450\" y1=\"280\" x2=\"660\" y2=\"280\" stroke=\"rgba(139,92,246,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <line x1=\"450\" y1=\"280\" x2=\"555\" y2=\"462\" stroke=\"rgba(139,92,246,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <line x1=\"450\" y1=\"280\" x2=\"345\" y2=\"462\" stroke=\"rgba(139,92,246,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n      <line x1=\"450\" y1=\"280\" x2=\"240\" y2=\"280\" stroke=\"rgba(139,92,246,0.25)\" stroke-width=\"1.5\" stroke-dasharray=\"5,4\"/>\n\n      <circle cx=\"450\" cy=\"280\" r=\"78\" fill=\"none\" stroke=\"rgba(139,92,246,0.2)\" stroke-width=\"1\">\n        <animate attributeName=\"r\" values=\"78;92;78\" dur=\"3s\" repeatCount=\"indefinite\"/>\n        <animate attributeName=\"stroke-opacity\" values=\"0.2;0.05;0.2\" dur=\"3s\" repeatCount=\"indefinite\"/>\n      </circle>\n      <circle cx=\"450\" cy=\"280\" r=\"65\" fill=\"none\" stroke=\"rgba(139,92,246,0.3)\" stroke-width=\"1\"/>\n\n      <circle cx=\"450\" cy=\"280\" r=\"60\" fill=\"#1e143f\" stroke=\"rgba(139,92,246,0.6)\" stroke-width=\"1.5\" filter=\"url(#glow)\"/>\n      <text x=\"450\" y=\"272\" text-anchor=\"middle\" font-family=\"'DM Serif Display', serif\" font-size=\"17\" font-weight=\"400\" fill=\"rgba(255,255,255,0.9)\" letter-spacing=\"0.5\">Core</text>\n      <text x=\"450\" y=\"292\" text-anchor=\"middle\" font-family=\"'DM Serif Display', serif\" font-size=\"17\" font-style=\"italic\" fill=\"#8b5cf6\" letter-spacing=\"0.5\">Engine</text>\n\n      <!-- Nodes -->\n      <g class=\"pillar-node\">\n        <circle cx=\"345\" cy=\"98\" r=\"58\" fill=\"#2a1b54\" stroke=\"rgba(139,92,246,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;1;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"0s\"/>\n        </circle>\n        <text x=\"345\" y=\"84\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#8b5cf6\" letter-spacing=\"1\">T1</text>\n        <text x=\"345\" y=\"106\" text-anchor=\"middle\" font-family=\"'DM Sans', sans-serif\" font-size=\"18\" fill=\"white\">Hero</text>\n      </g>\n      <g class=\"pillar-node\">\n        <circle cx=\"555\" cy=\"98\" r=\"58\" fill=\"#2a1b54\" stroke=\"rgba(139,92,246,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;1;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"0.6s\"/>\n        </circle>\n        <text x=\"555\" y=\"84\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#8b5cf6\" letter-spacing=\"1\">T2</text>\n        <text x=\"555\" y=\"106\" text-anchor=\"middle\" font-family=\"'DM Sans', sans-serif\" font-size=\"18\" fill=\"white\">Process</text>\n      </g>\n      <g class=\"pillar-node\">\n        <circle cx=\"660\" cy=\"280\" r=\"58\" fill=\"#2a1b54\" stroke=\"rgba(139,92,246,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;1;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"1.2s\"/>\n        </circle>\n        <text x=\"660\" y=\"266\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#8b5cf6\" letter-spacing=\"1\">T3</text>\n        <text x=\"660\" y=\"288\" text-anchor=\"middle\" font-family=\"'DM Sans', sans-serif\" font-size=\"18\" fill=\"white\">GridCards</text>\n      </g>\n      <g class=\"pillar-node\">\n        <circle cx=\"555\" cy=\"462\" r=\"58\" fill=\"#2a1b54\" stroke=\"rgba(139,92,246,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;1;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"1.8s\"/>\n        </circle>\n        <text x=\"555\" y=\"448\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#8b5cf6\" letter-spacing=\"1\">T4</text>\n        <text x=\"555\" y=\"470\" text-anchor=\"middle\" font-family=\"'DM Sans', sans-serif\" font-size=\"18\" fill=\"white\">BeforeAfter</text>\n      </g>\n      <g class=\"pillar-node\">\n        <circle cx=\"345\" cy=\"462\" r=\"58\" fill=\"#2a1b54\" stroke=\"rgba(139,92,246,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;1;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"2.4s\"/>\n        </circle>\n        <text x=\"345\" y=\"448\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#8b5cf6\" letter-spacing=\"1\">T5</text>\n        <text x=\"345\" y=\"470\" text-anchor=\"middle\" font-family=\"'DM Sans', sans-serif\" font-size=\"18\" fill=\"white\">Timeline</text>\n      </g>\n      <g class=\"pillar-node\">\n        <circle cx=\"240\" cy=\"280\" r=\"58\" fill=\"#2a1b54\" stroke=\"rgba(139,92,246,0.5)\" stroke-width=\"1.5\">\n          <animate attributeName=\"stroke-opacity\" values=\"0.5;1;0.5\" dur=\"4s\" repeatCount=\"indefinite\" begin=\"3s\"/>\n        </circle>\n        <text x=\"240\" y=\"266\" text-anchor=\"middle\" font-family=\"DM Mono, monospace\" font-size=\"15\" fill=\"#8b5cf6\" letter-spacing=\"1\">T6</text>\n        <text x=\"240\" y=\"288\" text-anchor=\"middle\" font-family=\"'DM Sans', sans-serif\" font-size=\"18\" fill=\"white\">Tables</text>\n      </g>\n    </svg>\n  </div>\n</div>"
     }
   ]
 }
