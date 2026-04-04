@@ -228,7 +228,7 @@ function renderHubSpoke(slide) {
     .hub-svg-wrap g { transform-origin: center; } 
     </style>
     <div class="hub-svg-wrap custom-html-container">
-      <svg viewBox="100 -20 700 600" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="100 -30 700 640" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <filter id="hubGlow">
             <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -263,12 +263,12 @@ function renderHubSpoke(slide) {
         
         nodesHtml += `
         <g class="node-group" style="animation: fadeScaleIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards ${delay}s; transform-origin: ${nx}px ${ny}px;">
-            <circle cx="${nx}" cy="${ny}" r="55" fill="${nodeBg}" stroke="${nodeStroke}" stroke-width="1.5">
+            <circle cx="${nx}" cy="${ny}" r="66" fill="${nodeBg}" stroke="${nodeStroke}" stroke-width="1.5">
                 <animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite" begin="${i * 0.4}s"/>
             </circle>
-            <text x="${nx}" y="${ny - 12}" text-anchor="middle" font-family="'DM Mono', monospace" font-size="14" fill="${fillTag}" letter-spacing="1">${node.tag || ('T'+(i+1))}</text>
-            <text x="${nx}" y="${ny + 10}" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="16" fill="${fillLabel}" font-weight="500">${node.label}</text>
-            ${node.sublabel ? `<text x="${nx}" y="${ny + 26}" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="${fillSub}">${node.sublabel}</text>` : ''}
+            <text x="${nx}" y="${ny - 14}" text-anchor="middle" font-family="'DM Mono', monospace" font-size="17" fill="${fillTag}" letter-spacing="1">${node.tag || ('T'+(i+1))}</text>
+            <text x="${nx}" y="${ny + 12}" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="19" fill="${fillLabel}" font-weight="500">${node.label}</text>
+            ${node.sublabel ? `<text x="${nx}" y="${ny + 30}" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="13.5" fill="${fillSub}">${node.sublabel}</text>` : ''}
         </g>
         `;
     }
@@ -277,17 +277,17 @@ function renderHubSpoke(slide) {
     
     // Center Hub Rings
     ht += `
-        <circle cx="${cx}" cy="${cy}" r="75" fill="none" stroke="${ringStroke1}" stroke-width="1">
-            <animate attributeName="r" values="75;88;75" dur="3s" repeatCount="indefinite"/>
+        <circle cx="${cx}" cy="${cy}" r="90" fill="none" stroke="${ringStroke1}" stroke-width="1">
+            <animate attributeName="r" values="90;105;90" dur="3s" repeatCount="indefinite"/>
             <animate attributeName="stroke-opacity" values="0.2;0.05;0.2" dur="3s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="${cx}" cy="${cy}" r="65" fill="none" stroke="${ringStroke2}" stroke-width="1"/>
-        <circle cx="${cx}" cy="${cy}" r="55" fill="${centerBg}" stroke="${centerStroke}" stroke-width="1.5" filter="url(#hubGlow)">
+        <circle cx="${cx}" cy="${cy}" r="78" fill="none" stroke="${ringStroke2}" stroke-width="1"/>
+        <circle cx="${cx}" cy="${cy}" r="66" fill="${centerBg}" stroke="${centerStroke}" stroke-width="1.5" filter="url(#hubGlow)">
              <animate attributeName="stroke-opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
         </circle>
         
-        <text x="${cx}" y="${cy - 4}" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="18" fill="${fillLabel}" letter-spacing="0.5">${hubTitle}</text>
-        <text x="${cx}" y="${cy + 16}" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="15" font-style="italic" fill="${fillTag}" letter-spacing="0.5">${hubSub}</text>
+        <text x="${cx}" y="${cy - 4}" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="22" fill="${fillLabel}" letter-spacing="0.5">${hubTitle}</text>
+        <text x="${cx}" y="${cy + 20}" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="18" font-style="italic" fill="${fillTag}" letter-spacing="0.5">${hubSub}</text>
     `;
     
     ht += nodesHtml;
