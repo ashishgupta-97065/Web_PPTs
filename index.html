@@ -242,24 +242,33 @@ async function init() {
             container.appendChild(div);
         });
         
-        nav(0);
+        let startIdx = 0;
+        if (window.location.hash) {
+            let hashVal = window.location.hash.substring(1);
+            let parsed = parseInt(hashVal);
+            if (!isNaN(parsed) && parsed > 0 && parsed <= total) {
+                startIdx = parsed - 1;
+            } else {
+                let idIdx = slideIds.indexOf(hashVal);
+                if (idIdx !== -1) startIdx = idIdx;
+            }
+        }
+        goto(startIdx);
     } catch(err) {
         console.error("Failed to load template data:", err);
         document.getElementById('slides-container').innerHTML = "<p style='color:red;padding:20px'>Error loading slides. Check console.</p>";
     }
 }
 
-function nav(d) {
-  let next = cur + d;
-  if(d === 0) next = 0;
-  if (next < 0 || next >= total) return;
+function goto(index) {
+  if (index < 0 || index >= total) return;
   
   const currentId = slideIds[cur];
   if (document.getElementById(currentId)) {
       document.getElementById(currentId).classList.remove('active');
   }
   
-  cur = next;
+  cur = index;
   const nextId = slideIds[cur];
   
   const slideEl = document.getElementById(nextId);
@@ -273,6 +282,13 @@ function nav(d) {
   document.getElementById('nextBtn').disabled = cur === total - 1;
   document.getElementById('progress').style.width = ((cur+1)/total*100)+'%';
   window.scrollTo(0, 0);
+  
+  // Natively sync the URL without refreshing or scrolling
+  window.history.replaceState(null, null, '#' + (cur + 1));
+}
+
+function nav(d) {
+  goto(cur + d);
 }
 
 document.addEventListener('keydown', e => {
