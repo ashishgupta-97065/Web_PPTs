@@ -1,0 +1,469 @@
+{
+  "options": {
+    "templates": [
+      "Hero",
+      "Process",
+      "GridCards",
+      "BeforeAfter",
+      "Timeline",
+      "TableLayout",
+      "CustomHTML"
+    ],
+    "themes": [
+      "dark",
+      "light",
+      "medium"
+    ],
+    "tagColors": [
+      "default",
+      "medium",
+      "grn",
+      "amb",
+      "blu",
+      "red"
+    ],
+    "stepColors": [
+      "default",
+      "red",
+      "grn",
+      "amb"
+    ],
+    "cardThemes": [
+      "dark",
+      "light"
+    ],
+    "gridTypes": [
+      "grid3",
+      "grid4",
+      "grid2"
+    ]
+  },
+  "slides": [
+    {
+      "id": "slide1",
+      "template": "Hero",
+      "theme": "dark",
+      "header": {
+        "tag": "From a painful necessity to delightful experience",
+        "tagColor": "default",
+        "title": "Dhanvantri AI OS:Redefining Hospital Experience"
+      },
+      "content": [
+        "Using modern technologies and customer first product thinking to make hospital visits a pleasurable experience",
+        "Improved efficiencies further lead to both higher revenues and lower costs"
+      ]
+    },
+    {
+      "id": "slide2",
+      "template": "HubSpoke",
+      "theme": "light",
+      "header": {
+        "tag": "dramatic transformations  across the board",
+        "tagColor": "pur",
+        "title": "Imagine A World...",
+        "subtitle": "Where technology steps in and automates all possible processes to make the experience better for patients, doctors and hospital staff."
+      },
+      "hub": {
+        "title": "KPIs",
+        "subtitle": "Transformed"
+      },
+      "nodes": [
+        {
+          "tag": "Wait Times",
+          "label": "90%",
+          "sublabel": "Lower"
+        },
+        {
+          "tag": "NPS",
+          "label": "30%",
+          "sublabel": "Higher"
+        },
+        {
+          "tag": "Digitization",
+          "label": "100%",
+          "sublabel": "Native"
+        },
+        {
+          "tag": "Pharmacy",
+          "label": "40%",
+          "sublabel": "Less Leakage"
+        },
+        {
+          "tag": "Diagnostics",
+          "label": "-50%",
+          "sublabel": "Error Rate"
+        },
+        {
+          "tag": "Consultation",
+          "label": "100%",
+          "sublabel": "Auto 2nd Opinion"
+        },
+        {
+          "tag": "Support Staff",
+          "label": "25%",
+          "sublabel": "Lower"
+        }
+      ]
+    },
+    {
+      "id": "slide3",
+      "template": "GridCards",
+      "theme": "medium",
+      "header": {
+        "tag": "The AI Opportunity Landscape",
+        "tagColor": "pur",
+        "title": "AI Is Transforming Every Step of the Hospital Journey",
+        "subtitle": "From diagnostics to billing to patient engagement — proven AI systems are already augmenting each layer of care and operations. The change has to happen NOW!"
+      },
+      "grids": [
+        {
+          "type": "grid3",
+          "cards": [
+            {
+              "theme": "light",
+              "topColor": "blu",
+              "heading": "🧠 Clinical Decision Support",
+              "text": [
+                "AI assists doctors with documentation, coding, and treatment suggestions.",
+                "Tools: Nuance DAX, Suki AI"
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "blu",
+              "heading": "🩻 Radiology AI",
+              "text": [
+                "Automated scan interpretation and prioritization of critical findings.",
+                "Tools: Qure.ai, Aidoc"
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "grn",
+              "heading": "🧪 Pathology AI",
+              "text": [
+                "Digital pathology with AI-assisted diagnosis and grading support.",
+                "Tools: PathAI, Aira Matrix"
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "amb",
+              "heading": "🛏️ Patient Flow & Scheduling",
+              "text": [
+                "Real-time bed tracking, discharge prediction, and flow optimization.",
+                "Tools: LeanTaaS, TeleTracking"
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "red",
+              "heading": "🏥 Operating Room Optimization",
+              "text": [
+                "AI-driven scheduling and utilization improvement for surgical workflows.",
+                "Tools: LeanTaaS iQueue"
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "grn",
+              "heading": "💰 Revenue Cycle AI",
+              "text": [
+                "Automated coding, claim validation, and denial reduction.",
+                "Tools: Waystar, nThrive"
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "amb",
+              "heading": "💊 Pharmacy & Supply Chain",
+              "text": [
+                "Demand forecasting, inventory optimization, and safe dispensing.",
+                "Tools: Blue Yonder, Omnicell"
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "blu",
+              "heading": "💬 Patient Engagement",
+              "text": [
+                "Chatbots, follow-ups, adherence tracking, and remote care.",
+                "Tools: Innovaccer, Huma"
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "amb",
+              "heading": "🤖 Generative AI Layer",
+              "text": [
+                "AI scribes, discharge summaries, and conversational assistants.",
+                "Tools: Nuance DAX, GPT / Claude-class models"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slide4",
+      "template": "HubSpoke",
+      "theme": "light",
+      "header": {
+        "tag": "building an ai first future proof architecture",
+        "tagColor": "pur",
+        "title": "AI Across the Hospital Journey",
+        "subtitle": "A unified operating system orchestrating patient access, clinical intelligence, and hospital operations end-to-end"
+      },
+      "hub": {
+        "title": "MedCore OS",
+        "subtitle": "The AI Spine"
+      },
+      "nodes": [
+        {
+          "tag": "PATIENT FLOW",
+          "label": "Flow Engine",
+          "sublabel": "Unified queues & routing"
+        },
+        {
+          "tag": "CONSULTATION",
+          "label": "AI Scribe",
+          "sublabel": "Real-time transcription"
+        },
+        {
+          "tag": "DIAGNOSTICS",
+          "label": "Imaging AI",
+          "sublabel": "Faster reads, fewer misses"
+        },
+        {
+          "tag": "OPERATIONS",
+          "label": "Orchestration AI",
+          "sublabel": "Automated workflows"
+        },
+        {
+          "tag": "BILLING & RCM",
+          "label": "Coding AI",
+          "sublabel": "Accurate billing, low denial"
+        },
+        {
+          "tag": "POST CARE",
+          "label": "Engagement AI",
+          "sublabel": "Regular follow-up"
+        }
+      ]
+    },
+    {
+      "id": "slide5",
+      "template": "GridCards",
+      "theme": "light",
+      "header": {
+        "tag": "Hospitals Deliver Care. But The Experience Fails.",
+        "tagColor": "red",
+        "title": "Example Problem: Patient Journey",
+        "subtitle": "The issue isn’t capability — it’s the absence of visibility, flow, and patient-centric design."
+      },
+      "grids": [
+        {
+          "type": "grid3",
+          "cards": [
+            {
+              "theme": "light",
+              "topColor": "gr",
+              "heading": "👁️ Patients Become Invisible",
+              "text": [
+                "Systems track files, IDs, and records — not patients.",
+                "Once the process starts, patients lose visibility into what’s happening."
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "amb",
+              "heading": "⏳ Waiting Is Undefined",
+              "text": [
+                "No queue position, no ETA, no updates.",
+                "Waiting becomes the dominant experience — and it is unmanaged."
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "pur",
+              "heading": "🔁 Fragmented Journeys",
+              "text": [
+                "Multiple queues for a single outcome.",
+                "No unified flow across registration, consultation, and follow-ups."
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "red",
+              "heading": "😰 Stress-Driven Behavior",
+              "text": [
+                "Crowding, repeated checking, and informal negotiation.",
+                "These behaviors are created by system gaps — not people."
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "blu",
+              "heading": "📱 Digital ≠ Better Experience",
+              "text": [
+                "Online booking exists, but uncertainty remains.",
+                "Digitization is layered — not integrated into the journey."
+              ]
+            },
+            {
+              "theme": "light",
+              "topColor": "red",
+              "heading": "🔄 Broken Return Loops",
+              "text": [
+                "Test results and follow-ups lack structured re-entry.",
+                "Patients restart the journey, leading to chaos and delays."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slide6",
+      "template": "Process",
+      "theme": "light",
+      "header": {
+        "tag": "The AI-Native Model",
+        "tagColor": "grn",
+        "title": "Solution: From Blind Journeys to Intelligent Patient Flow",
+        "subtitle": "A unified, AI-driven system where every patient is continuously informed, guided, and seamlessly managed."
+      },
+      "steps": [
+        {
+          "number": "1",
+          "color": "blu",
+          "heading": "Unified Entry Layer",
+          "text": [
+            "A single digital token is created via app, WhatsApp, kiosk, or assisted desk.",
+            "Works seamlessly for both smartphone and non-smartphone users."
+          ]
+        },
+        {
+          "number": "2",
+          "color": "pur",
+          "heading": "Real-Time Visibility",
+          "text": [
+            "Patients always know their queue position, estimated wait time, and next step.",
+            "Eliminates uncertainty and removes the need for physical queue monitoring."
+          ]
+        },
+        {
+          "number": "3",
+          "color": "amb",
+          "heading": "Multi-Channel AI Assistant",
+          "text": [
+            "A multilingual assistant across app, WhatsApp, SMS, and AI voice provides continuous updates and guidance.",
+            "Ensures every patient — regardless of digital access — remains informed at all times."
+          ]
+        },
+        {
+          "number": "4",
+          "color": "medium",
+          "heading": "Intelligent Flow Orchestration",
+          "text": [
+            "AI dynamically manages queues, prioritizes cases, and handles test-return logic automatically.",
+            "Optimizes patient flow across departments in real time."
+          ]
+        },
+        {
+          "number": "5",
+          "color": "grn",
+          "heading": "Seamless End-to-End Journey",
+          "text": [
+            "Consultation, diagnostics, pharmacy, and follow-ups operate within one continuous system.",
+            "No re-entry, no duplication, no fragmentation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slide7",
+      "template": "Process",
+      "theme": "light",
+      "header": {
+        "tag": "Better Experience for customer · Less work for Doctors & staff · Higher Revenue for hospital",
+        "tagColor": "grn",
+        "title": "A Hospital That Just Works: Example of an OPD Journey",
+        "subtitle": "An end-to-end, AI-orchestrated journey where patients, doctors, and systems move in perfect sync"
+      },
+      "steps": [
+        {
+          "number": "1",
+          "color": "default",
+          "heading": "🌐 Digital Entry",
+          "text": [
+            "Patient books online and receives a unified digital token with time and doctor allocation."
+          ]
+        },
+        {
+          "number": "2",
+          "color": "amb",
+          "heading": "🧭 Guided Arrival",
+          "text": [
+            "Smart navigation guides the patient directly to the right location — no counters, no confusion."
+          ]
+        },
+        {
+          "number": "3",
+          "color": "grn",
+          "heading": "⏱️ Visible Waiting",
+          "text": [
+            "Real-time queue position and ETA eliminate crowding and uncertainty."
+          ]
+        },
+        {
+          "number": "4",
+          "color": "blu",
+          "heading": "🎤 Augmented Consult",
+          "text": [
+            "An AI scribe captures notes in real time and generates structured prescriptions for one-click doctor approval."
+          ]
+        },
+        {
+          "number": "5",
+          "color": "amb",
+          "heading": "⚙️ Auto Coordination",
+          "text": [
+            "Pharmacy workflows are triggered instantly after patient confirmation — no manual handoffs."
+          ]
+        },
+        {
+          "number": "6",
+          "color": "default",
+          "heading": "📦 Ready Pickup",
+          "text": [
+            "Medicines are prepared before the patient reaches the pharmacy for instant pickup."
+          ]
+        },
+        {
+          "number": "7",
+          "color": "grn",
+          "heading": "📲 Continuous Care",
+          "text": [
+            "AI-driven follow-ups, reminders, and remote monitoring ensure adherence and next consult bookings."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slide8",
+      "template": "Hero",
+      "theme": "dark",
+      "header": {
+        "tag": "OPD was just one simple example",
+        "tagColor": "pur",
+        "title": "Imagine All Hospital Processes Redefined With AI",
+        "subtitle": "AI transforms not only individual steps but also helps connect different steps into a seamless journey"
+      },
+      "content": [
+        "Patients experience care without friction reducing the hesitation to visit hospitals",
+        "Hospital makes more revenue while also keeping their medical and support staff much happier"
+      ]
+    }
+  ]
+}
