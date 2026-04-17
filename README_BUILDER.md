@@ -29,6 +29,16 @@ Every time you create a new deck or update the main Title of an existing deck:
    git push
    ```
 
+## Architecture: What lives where
+
+| What you want to change | Where to change it |
+|---|---|
+| Slide content (title, subtitle, body text, cards) | `deck_jsons/<deck_name>.json` |
+| Link preview on WhatsApp / LinkedIn (og:title, og:description) | `<deck_name>.html` wrapper **or** re-run `build_decks.py` |
+| Styling / layout | `deck.css` |
+
+> **Important:** The `.html` wrapper files are **thin shells** — they only hold OG meta tags and a script tag pointing to the JSON. They do **not** control what appears on screen. All visible slide content comes from the JSON. Each wrapper is deck-specific and standalone; editing one never affects another.
+
 ## Sharing the Link
 Instead of sharing the old URL format, you will now just share the direct link to the auto-generated HTML file!
 
